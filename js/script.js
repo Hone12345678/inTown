@@ -1,10 +1,27 @@
 // edit below apikey with anything that's relevant, if api key is required.
-var appid = "0011fe5c";
-var apikey = "d275470047fa1b116d2b18e8130d5d08";
 
+// ross appid
+// var appid = "0011fe5c";
+
+// luc appid
+var appid ="5ce86110";
+
+// ross api key
+// var apikey = "d275470047fa1b116d2b18e8130d5d08";
+
+// luc api key
+var apikey = "eced3b68dfd63d133724d406c306074c";	
+
+// api is being called
 var TESTFETCH = function (city) {
+  //user inputs name of ingredient and number of chosen ingredients
+  var ingredientName = $(".ingredientName").val();
+  var ingredientNumber = $(".ingredientNumber :selected").val();
+  console.log(ingredientName);
+  console.log(ingredientNumber);
+
   // edit the below link with the fetch URL.
-  var runTest = `https://api.edamam.com/api/recipes/v2?type=public&q=chicken%20breast&app_id=0011fe5c&app_key=d275470047fa1b116d2b18e8130d5d08&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=ingredients&field=calories`;
+  var runTest = 'https://api.edamam.com/api/recipes/v2?type=public&q=' + ingredientName + '&app_id=5ce86110&app_key=eced3b68dfd63d133724d406c306074c&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=ingredients&field=calories&ingr=' + ingredientNumber;
 
   fetch(runTest)
     .then(function (response) {
@@ -21,5 +38,12 @@ var TESTFETCH = function (city) {
     });
 };
 
-// hardcode specific fetch test request in thebelow call w a string.
-TESTFETCH();
+
+// user clicks on submit button to run api fetch
+$(".userInput").submit(function(e) {
+  e.preventDefault();
+  
+  // hardcode specific fetch test request in thebelow call w a string.
+  TESTFETCH();
+
+})
