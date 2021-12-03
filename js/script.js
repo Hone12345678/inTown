@@ -1,10 +1,15 @@
 // the
+
+// luc seatgeek ID:
+// var clientID = "MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1";
+// luc seatgeek API:
+// var secretid = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3"; 
+
 // ross seatgeek ID:
 // var sgId = "MjQ3NDc5OTF8MTYzODUwMTM3Ny4wMDg0Njkz";
 
 // ross seatgeek API:
 // var sgapi = "a6b71eb52cb670089cf50fb5738d53648820061f6b4881cec0f37a476826e8a1";
-
 
 // edit below apikey with anything that's relevant, if api key is required.
 // ross appid
