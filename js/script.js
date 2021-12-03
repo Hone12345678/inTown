@@ -1,3 +1,8 @@
+// luc seatgeek ID:
+// var clientID = "MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1";
+// luc seatgeek API:
+// var secretid = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3"; 
+
 // edit below apikey with anything that's relevant, if api key is required.
 // ross appid
 // var appid = "0011fe5c";
