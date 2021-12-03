@@ -1,5 +1,4 @@
 // edit below apikey with anything that's relevant, if api key is required.
-
 // ross appid
 // var appid = "0011fe5c";
 
@@ -35,6 +34,8 @@ var TESTFETCH = function (city) {
     .then(function (data) {
       // check console log to confirm fetch details
       console.log(data);
+
+      displayImage(data);
     });
 };
 
@@ -45,5 +46,30 @@ $(".userInput").submit(function(e) {
   
   // hardcode specific fetch test request in thebelow call w a string.
   TESTFETCH();
-
 })
+
+
+// displays image of recipe
+function displayImage( d ) {
+  $(".recipeImage").attr("src", d.hits[0].recipe.image);
+
+  var img = document.createElement("img");
+    img.src = d.hits[1].recipe.image;
+    img.style.cssText = `padding: 20px;`
+    document.querySelector(".recipeImage").after(img);
+
+    var img = document.createElement("img");
+    img.src = d.hits[2].recipe.image;
+    img.style.cssText = `padding: 20px;`
+    document.querySelector(".recipeImage").after(img);
+
+    var img = document.createElement("img");
+    img.src = d.hits[3].recipe.image;
+    img.style.cssText = `padding: 20px;`
+    document.querySelector(".recipeImage").after(img);
+
+    var img = document.createElement("img");
+    img.src = d.hits[4].recipe.image;
+    img.style.cssText = `padding: 20px;`
+    document.querySelector(".recipeImage").after(img);
+}
