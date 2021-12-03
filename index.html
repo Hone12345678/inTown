@@ -24,9 +24,9 @@
       <h1>Recipe Match</h1>
     </header>
 
-    <main class="container">
+    <main class="container pb-3">
       <div>
-      <form class="userInput">
+      <!-- <form class="userInput">
         <input type="text" class="ingredientName mr-2 p-1" placeholder="Enter name of ingredient">
         <select class="ingredientNumber">
           <option value=""># of ingredients</option>
@@ -36,18 +36,45 @@
           <option value="8">8</option>
         </select>
         <input type="submit" class="submitBtn" value="Submit">
+      </form> -->
+      <form class="userInput">
+        <div class="form-row">
+          <div class="col-6">
+            <div class="row">
+          <div class="col-6 pl-0 ">
+            <input type="text" id="ingredientName1" class="form-control" placeholder="Enter an ingredient">
+          </div>
+          <div class="col-6 p-0">
+            <input type="text" id="ingredientName2" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <div class="col-6 pl-0">
+            <input type="text" id="ingredientName3" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <div class="col-6 p-0">
+            <input type="text" id="ingredientName4" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <select class="col-6 pr-0 ingredientNumber">
+            <option value=""># of ingredients</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <input type="submit" class="submitBtn btn-block col-6" value="Submit">
+        </div>
+        </div>
+      </div>
       </form>
       </div>
+    </main>
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="recipeContainer">
-            <p class="recipeName"></p>
-            <img src="" class="recipeImage"></img>
-            </ul>
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
