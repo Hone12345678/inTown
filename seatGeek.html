@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>lastMinute-Event</title>
+</head>
+
+<body>
+
+    <body>
+        <header class="jumbotron">
+            <h1>What's Going on Tonight</h1>
+        </header>
+
+        <main class="container pb-3">
+               <div class="col">
+                    <form class="eventInput form-row">
+                        <div class="col-10">
+                            <div class="row">
+                                <select class="col-12 pr-0 btn-block" id="eventSelect">
+                                    <option value="">What do you feel like doing?</option>
+                                    <option value="concert">concert</option>
+                                    <option value="sportsball">sportsball</option>
+                                </select>
+                                <div class="col-6 pl-0">
+                                    <input type="text" id="artist-name" class="form-control"
+                                        placeholder="enter an artist">
+                                </div>
+                                <div class="col-6 p-0">
+                                    <input type="text" id="team-name" class="form-control" placeholder="enter a team">
+                                </div>
+                                <input type="submit" class="submitBtn2 btn-block col-6 mx-auto" value="Submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </main>
+         
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="assets/js/seatGeakLogic.js"></script>
+
+    </body>
+
+</html>
