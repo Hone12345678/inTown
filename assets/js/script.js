@@ -69,10 +69,27 @@ $(".userInput").submit(function(e) {
 function displayImage(d) {
   console.log(d);
   for (let i = 0; i < d.hits.length; i++) {
-    var recipeImgSlct = d.hits[i].recipe.image;
+    var recipeCont = document.createElement("section");
+    recipeCont.setAttribute("class", "col-3 px-5 py-2");
+    var recipeSlct = d.hits[i].recipe;
+    var link = document.createElement("a")
+    link.setAttribute("href", recipeSlct.url);
+    link.setAttribute("target", "_blank");
     var img = document.createElement("img");
-    img.src = recipeImgSlct;
+    img.src = recipeSlct.image;
     img.style.cssText = 'padding: 20px; border: solid 1px';
-    recipeImageEl.appendChild(img);
+    var recipeLabel = document.createElement("p");
+    recipeLabel.textContent = recipeSlct.label;
+    recipeLabel.setAttribute("class", "font-weight-bold");
+    var recipeIngred = document.createElement("ul");
+    for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
+      var recipeIngredList = document.createElement("li");
+      recipeIngredList.textContent = recipeSlct.ingredientLines[i];
+      recipeIngred.append(recipeIngredList);
+    }
+
+    link.appendChild(img);
+    recipeCont.append(recipeLabel, link, recipeIngred);
+    recipeImageEl.append(recipeCont);
   }
 }
