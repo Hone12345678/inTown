@@ -1,11 +1,14 @@
 // var myClientID ="MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0";
 // var mySID = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3";
+var userZip = $("#userZip").val();
+var userRange = $("#userRange").val();
+// var eventPostersEl = document.querySelector(".eventPostersContainer");
 
-
-var TESTFETCH = function () {
-var runTest = `https://api.seatgeek.com/2/performers?client_id=MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0`;
+var getUserEvents = function () {
+var runTest = `https://api.seatgeek.com/2/events?client_id=MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0&geoip=${userZip}&range=${userZip}`;
   fetch(runTest)
     .then(function (response) {
+        console.log(response);
       if (response.ok) {
         return response.json();
       } else {
@@ -21,8 +24,32 @@ var runTest = `https://api.seatgeek.com/2/performers?client_id=MjQ3NDgwNzd8MTYzO
     });
 };
 
+$(".userInput").submit(function(event) {
+    event.preventDefault();
+    recipeImageEl.innerHTML = "";
+    // hardcode specific fetch test request in thebelow call w a string.
+    getUserEvents();
+  })
+  
 
-TESTFETCH();
+
+
+
+getUserEvents();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //   city $ curl 'https://api.seatgeek.com/2/venues?city=rockford'
 //  state   $ curl 'https://api.seatgeek.com/2/venues?state=il'

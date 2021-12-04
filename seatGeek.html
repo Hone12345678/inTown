@@ -21,29 +21,41 @@
         </header>
 
         <main class="container pb-3">
-               <div class="col">
-                    <form class="eventInput form-row">
-                        <div class="col-10">
-                            <div class="row">
-                                <select class="col-12 pr-0 btn-block" id="eventSelect">
-                                    <option value="">What do you feel like doing?</option>
-                                    <option value="concert">concert</option>
-                                    <option value="sportsball">sportsball</option>
-                                </select>
+            <div class="col">
+                <form class="eventInput form-row">
+                    <div class="col-10">
+                        <div class="row">
+                            <select class="col-12 pr-0 btn-block" id="eventSelect">
+                                <option value="">What do you feel like doing?</option>
+                                <option value="concert">concert</option>
+                                <option value="sportsball">sportsball</option>
+                            </select>
+                            <div class="col-6 pl-0">
+                                <input type="text" id="userZip" class="form-control" placeholder="enter your zip code">
+                                <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
+                                </div>
                                 <div class="col-6 pl-0">
-                                    <input type="text" id="artist-name" class="form-control"
-                                        placeholder="enter an artist">
+                                    <input type="text" id="userRange" class="form-control" placeholder="enter your desired range">
+                                    <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
                                 </div>
-                                <div class="col-6 p-0">
-                                    <input type="text" id="team-name" class="form-control" placeholder="enter a team">
+                                <div class="col-6 pl-0">
+                                    <input type="text" id="userEventType" class="form-control" placeholder="event type">
+                                    <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
                                 </div>
-                                <input type="submit" class="submitBtn2 btn-block col-6 mx-auto" value="Submit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-        </main>
-         
+                                
+                                </div>
+                                </form>
+                                </div>
+                                </main>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="eventPostersContainer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
