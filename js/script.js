@@ -26,17 +26,19 @@ var appid ="5ce86110";
 // luc api key
 var apikey = "eced3b68dfd63d133724d406c306074c";	
 
+var recipeImageEl = document.querySelector(".recipeContainer");
+
 // api is being called
 var TESTFETCH = function (city) {
   //user inputs name of ingredient and number of chosen ingredients
-  var ingredientName = $(".ingredientName").val();
+  var ingredientName1 = $("#ingredientName1").val();
+  var ingredientName2 = "&q=" + $("#ingredientName2").val();
+  var ingredientName3 = "&q=" + $("#ingredientName3").val();
+  var ingredientName4 = "&q=" + $("#ingredientName4").val();
   var ingredientNumber = $(".ingredientNumber :selected").val();
-  console.log(ingredientName);
-  console.log(ingredientNumber);
 
   // edit the below link with the fetch URL.
-  var runTest = 'https://api.edamam.com/api/recipes/v2?type=public&q=' + ingredientName + '&app_id=5ce86110&app_key=eced3b68dfd63d133724d406c306074c&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=ingredients&field=calories&ingr=' + ingredientNumber;
-
+  var runTest = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientName1}${ingredientName2}${ingredientName3}${ingredientName4}&app_id=5ce86110&app_key=eced3b68dfd63d133724d406c306074c&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=url&field=calories&ingr=${ingredientNumber}`;
   fetch(runTest)
     .then(function (response) {
       if (response.ok) {
@@ -49,7 +51,6 @@ var TESTFETCH = function (city) {
     .then(function (data) {
       // check console log to confirm fetch details
       console.log(data);
-
       displayImage(data);
     });
 };
@@ -58,33 +59,20 @@ var TESTFETCH = function (city) {
 // user clicks on submit button to run api fetch
 $(".userInput").submit(function(e) {
   e.preventDefault();
-  
+  recipeImageEl.innerHTML = "";
   // hardcode specific fetch test request in thebelow call w a string.
   TESTFETCH();
 })
 
 
 // displays image of recipe
-function displayImage( d ) {
-  $(".recipeImage").attr("src", d.hits[0].recipe.image);
-
-  var img = document.createElement("img");
-    img.src = d.hits[1].recipe.image;
-    img.style.cssText = `padding: 20px;`
-    document.querySelector(".recipeImage").after(img);
-
+function displayImage(d) {
+  console.log(d);
+  for (let i = 0; i < d.hits.length; i++) {
+    var recipeImgSlct = d.hits[i].recipe.image;
     var img = document.createElement("img");
-    img.src = d.hits[2].recipe.image;
-    img.style.cssText = `padding: 20px;`
-    document.querySelector(".recipeImage").after(img);
-
-    var img = document.createElement("img");
-    img.src = d.hits[3].recipe.image;
-    img.style.cssText = `padding: 20px;`
-    document.querySelector(".recipeImage").after(img);
-
-    var img = document.createElement("img");
-    img.src = d.hits[4].recipe.image;
-    img.style.cssText = `padding: 20px;`
-    document.querySelector(".recipeImage").after(img);
+    img.src = recipeImgSlct;
+    img.style.cssText = 'padding: 20px; border: solid 1px';
+    recipeImageEl.appendChild(img);
+  }
 }

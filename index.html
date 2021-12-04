@@ -24,30 +24,66 @@
       <h1>Recipe Match</h1>
     </header>
 
-    <main class="container">
-      <div>
-      <form class="userInput">
-        <input type="text" class="ingredientName mr-2 p-1" placeholder="Enter name of ingredient">
-        <select class="ingredientNumber">
-          <option value=""># of ingredients</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-        <input type="submit" class="submitBtn" value="Submit">
-      </form>
-      </div>
+    <main class="container pb-3">
       <div class="row">
-        <div class="col-12">
+        <div class="col-6">
+        <form class="form-row userInput">
+          <div class="col-10">
+            <div class="row">
+          <div class="col-6 pl-0 ">
+            <input type="text" id="ingredientName1" class="form-control" placeholder="Enter an ingredient">
+          </div>
+          <div class="col-6 p-0">
+            <input type="text" id="ingredientName2" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <div class="col-6 pl-0">
+            <input type="text" id="ingredientName3" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <div class="col-6 p-0">
+            <input type="text" id="ingredientName4" class="form-control" placeholder="Enter another ingredient">
+          </div>
+          <select class="col-6 pr-0 ingredientNumber">
+            <option value=""># of ingredients</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <input type="submit" class="submitBtn btn-block col-6" value="Submit">
+        </div>
+        </div>
+        </form>
+      </div>
+      <div class="col">
+      <form class="eventInput form-row">
+          <div class="col-10">
+            <div class="row">
+        <select class="col-12 pr-0 btn-block" id="eventSelect">
+          <option value="">What do you feel like doing?</option>
+          <option value="concert">concert</option>
+          <option value="sportsball">sportsball</option>
+        </select>
+        <div class="col-6 pl-0">
+          <input type="text" id="artist-name" class="form-control" placeholder="enter an artist">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" id="team-name" class="form-control" placeholder="enter a team">
+        </div>
+        <input type="submit" class="submitBtn2 btn-block col-6 mx-auto" value="Submit">
+      </div>
+      </div>
+      </form>
+    </div>
+    </div>
+    </main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
           <div class="recipeContainer">
-            <p class="recipeName"></p>
-            <img src="" class="recipeImage"></img>
-            </ul>
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
