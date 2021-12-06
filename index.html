@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shalimar&family=WindSong&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 <title>lastMinute-Dinner</title>
 </head>
 <body>
-    <nav class="d-flex">
+    <nav class="d-flex navbar">
       <h1 class="placeholder">blank space hidden</h1>
       <ul>
         <li>
@@ -39,31 +39,36 @@
       </ul>
     </nav> 
 
+    <main>
+      <div class="jumbotron">
+        <h1 class="title">Last Minute</h1>
+        <p class="text">Welcome to Last Minute. Please click on the images below to get started.</p>
+        <p>Recipe Match will help you find a recipe based on the ingredients you input. </p>
+        <p>Event finder will help you browse local events based on your mood. </p>
 
-    <div class="background-color">
-    <header class="jumbotron">
-      <h1 class="title">Last Minute</h1>
-      <p>Welcome to Last Minute. Please click on the images below to select </p>
-    </header>
+      <!-- Page Navigation -->
+      <div class="container">
+        <button class="recipeMatch btn">
+          <img src="./assets/images/recipe_image.jpg" alt= "recipe match place holder" />
+        </button>
 
-    <!-- Page Navigation -->
-    <div class="container">
-      <button class="recipeMatch btn">
-        <img src="./assets/images/recipe_image.jpg" alt= "recipe match place holder" />
-      </button>
+        <button class="seatGeek btn">
+          <img src="./assets/images/upcoming_events.JPG" alt= "recipe match place holder" />
+        </button> 
 
-      <button class="seatGeek btn">
-        <img src="./assets/images/upcoming_events.JPG" alt= "recipe match place holder" />
-      </button> 
+        <button class="dateNight btn">
+          <img src="./assets/images/date_night.jpg" alt= "recipe match place holder" />
+        </button>
+      </div>
+      </div>
+    </main>
 
-      <button class="dateNight btn">
-        <img src="./assets/images/date_night.jpg" alt= "recipe match place holder" />
-      </button>
-    </div>
-    </div>
+  <div class="slider"></div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
