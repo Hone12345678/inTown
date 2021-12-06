@@ -4,18 +4,75 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #000000;
+}
+
+.background-color {
+    background: #bdaf9e;
+    margin: 0 70px 70px 70px;
+}
+
+.placeholder {
+   opacity: 0;
+}
+
+nav {
+    margin: 7px 0;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 10px 15px;
+    font-weight: lighter;
+    font-size: 1.2vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+nav ul li a {
+    color: #bdaf9e;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
 .jumbotron {
-    padding: 2em;
+    padding: .5em;
     text-align: center;
-    color: #2bc74d;
     border-radius: 0;
-    background-image: linear-gradient(90deg, #000000 0%, #000000 100%);
+    background: #bdaf9e;
+}
+
+.title {
+    font-family: 'WindSong', cursive;
+    font-size: 75px;
+    font-weight: lighter;
+    padding-top: 20px;
+}
+
+.container {
+    text-align: center;
 }
 
 img {
-    height:200px;
-    width: 200px;
-    margin: 0 10px 10px 0;
+    height:auto;
+    width: 300px;
+    margin: 20px 20px 45px 20px;
+    opacity: 60%;
+    padding-top: 50px;
+}
+
+img:hover {
+    opacity: 100%;
 }
 
 #eventSelect {

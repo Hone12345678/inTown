@@ -4,85 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-    crossorigin="anonymous"
-    />
-    <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 <title>lastMinute-Dinner</title>
 </head>
 <body>
+    <nav class="d-flex">
+      <h1 class="placeholder">blank space hidden</h1>
+      <ul>
+        <li>
+          <a href="./index.html">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="./recipe2.html">
+            Recipe Match
+          </a>
+        </li>
+        <li>
+          <a href="./seatGeek.html">
+            Event Finder
+          </a>
+        </li>
+        <li>
+          <a href="./dateNight.html">
+            Date Night
+          </a>
+        </li>
+      </ul>
+    </nav> 
+
+
+    <div class="background-color">
     <header class="jumbotron">
-      <h1>Recipe Match</h1>
+      <h1 class="title">Last Minute</h1>
+      <p>Welcome to Last Minute. Please click on the images below to select </p>
     </header>
 
-    <main class="container pb-3">
-      <div class="row">
-        <div class="col-6">
-        <form class="form-row userInput">
-          <div class="col-10">
-            <div class="row">
-          <div class="col-6 pl-0 ">
-            <input type="text" id="ingredientName1" class="form-control" placeholder="Enter an ingredient">
-          </div>
-          <div class="col-6 p-0">
-            <input type="text" id="ingredientName2" class="form-control" placeholder="Enter another ingredient">
-          </div>
-          <div class="col-6 pl-0">
-            <input type="text" id="ingredientName3" class="form-control" placeholder="Enter another ingredient">
-          </div>
-          <div class="col-6 p-0">
-            <input type="text" id="ingredientName4" class="form-control" placeholder="Enter another ingredient">
-          </div>
-          <select class="col-6 pr-0 ingredientNumber">
-            <option value=""># of ingredients</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-          </select>
-          <input type="submit" class="submitBtn btn-block col-6" value="Submit">
-        </div>
-        </div>
-        </form>
-      </div>
-      <div class="col">
-      <form class="eventInput form-row">
-          <div class="col-10">
-            <div class="row">
-        <select class="col-12 pr-0 btn-block" id="eventSelect">
-          <option value="">What do you feel like doing?</option>
-          <option value="concert">concert</option>
-          <option value="sportsball">sportsball</option>
-        </select>
-        <div class="col-6 pl-0">
-          <input type="text" id="artist-name" class="form-control" placeholder="enter an artist">
-        </div>
-        <div class="col-6 p-0">
-          <input type="text" id="team-name" class="form-control" placeholder="enter a team">
-        </div>
-        <input type="submit" class="submitBtn2 btn-block col-6 mx-auto" value="Submit">
-      </div>
-      </div>
-      </form>
+    <!-- Page Navigation -->
+    <div class="container">
+      <button class="recipeMatch btn">
+        <img src="./assets/images/recipe_image.jpg" alt= "recipe match place holder" />
+      </button>
+
+      <button class="seatGeek btn">
+        <img src="./assets/images/upcoming_events.JPG" alt= "recipe match place holder" />
+      </button> 
+
+      <button class="dateNight btn">
+        <img src="./assets/images/date_night.jpg" alt= "recipe match place holder" />
+      </button>
     </div>
-    </div>
-    </main>
-    <div class="container-fluid">
-      <div class="row recipeContainer">
-      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
