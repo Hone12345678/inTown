@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.jumbotron {
+  padding: 2em;
+  text-align: center;
+  color: #2bc74d;
+  border-radius: 0;
+  background-image: linear-gradient(90deg, #000000 0%, #000000 100%, rgb(105, 81, 81));
+}
+
+img {
+  height:200px;
+  width: 200px;
+  margin: 0 10px 10px 0;
+}
+
+#eventSelect {
+  padding: 7px 0px;
+}
+
+section p {
+  font-weight: bolder;
+}
+section {
+  padding-left: 200px;
+  border-bottom: 1px solid;
+}
+
+#nextBtn {
+  padding-bottom:84px;
+}
+
+a {
+  background-color: #efefef;
+}
+
+@media screen and (min-width: 500px) {
+  body {
+      margin-left: 20px;
+  }
+  }
