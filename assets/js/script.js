@@ -1,6 +1,6 @@
-//owen seatgeek ID:
-//var Client ID: MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0
-//var secretid = 4429e1ae22c0aa3ee55fa52470a44d43b92d5a5c9c50e39ea7debc50f009246cS
+// owen seatgeek ID:
+// var Client ID: MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0
+// var secretid = 4429e1ae22c0aa3ee55fa52470a44d43b92d5a5c9c50e39ea7debc50f009246cS
 // luc seatgeek ID:
 // var clientID = "MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1";
 // luc seatgeek API:
@@ -15,7 +15,7 @@
 // ross appid
 // var appid = "0011fe5c";
 
-//test
+// test
 
 // luc appid
 var appid ="5ce86110";
@@ -94,6 +94,11 @@ var apikey = "eced3b68dfd63d133724d406c306074c";
 //   }
 // }
 
+var jumbotron = document.querySelector(".jumbotron");
+var slider = document.querySelector(".slider");
+var navbar = document.querySelector(".navbar");
+var timeline = new TimelineMax();
+
 // clicking the recipe match icon takes you to recipe match page
 $(".recipeMatch").on("click", function () {
   location.href = "./recipe2.html";
@@ -108,3 +113,12 @@ $(".seatGeek").on("click", function () {
 $(".dateNight").on("click", function () {
   location.href = "./dateNight.html";
 });
+
+// animates main section to slowly display on load
+timeline.fromTo(jumbotron, 1, {height:"0%"}, {height:"100%", ease: Power1.easeInOut} 
+).fromTo(jumbotron, 1.2, {width:"40%"}, {width: "90%", ease: Power1.easeInOut})
+
+// black slider display on page load
+.fromTo(slider, 1, {x: "-100%"}, {x: "0%", ease: Power1.easeInOut}, "-=1.2")
+
+.fromTo(navbar, 1.2, {opacity:0}, {opacity: 1}, "-=.5")
