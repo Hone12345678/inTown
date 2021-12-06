@@ -26,6 +26,12 @@ var appid ="5ce86110";
 // luc api key
 var apikey = "eced3b68dfd63d133724d406c306074c";	
 
+var saveObj = {
+  saveLabel:[],
+  saveImg:[],
+  saveIngreds:[]
+};
+
 var recipeImageEl = document.querySelector(".recipeContainer");
 
 // api is being called
@@ -64,32 +70,76 @@ $(".userInput").submit(function(e) {
   TESTFETCH();
 })
 
-
 // displays image of recipe
 function displayImage(d) {
   console.log(d);
   for (let i = 0; i < d.hits.length; i++) {
     var recipeCont = document.createElement("section");
-    recipeCont.setAttribute("class", "col-3 px-5 py-2");
+    recipeCont.setAttribute("class", "col-12 col-sm-6 col-lg-3 pr-3 py-2");
+    recipeCont.setAttribute("id", [i]);
     var recipeSlct = d.hits[i].recipe;
-    var link = document.createElement("a")
-    link.setAttribute("href", recipeSlct.url);
-    link.setAttribute("target", "_blank");
+    var btnRow = document.createElement("div");
+    btnRow.setAttribute("class", "row");
+    var btnCol = document.createElement("div");
+    btnCol.setAttribute("class", "col-12");
+    var btnRow2 = document.createElement("div");
+    btnRow2.setAttribute("class", "row");
+    var viewRecipeClck = document.createElement("div");
+    viewRecipeClck.setAttribute("class", "col-5 p-0 mr-2 ml-2");
+    var saveBtnClck = document.createElement("div");
+    saveBtnClck.setAttribute("class", "col-5 p-0")
+    var viewRecipe = document.createElement("a");
+    viewRecipe.textContent = "Instrctns";
+    viewRecipe.setAttribute("target", "_blank");
+    viewRecipe.setAttribute("href", recipeSlct.url);
+    viewRecipe.setAttribute("class", "btn btn-primary btn-sm btn-block");
+    // viewRecipeClck.addEventListener("click", recipeUrl);
+    var saveRecipe = document.createElement("button");
+    saveRecipe.textContent = "Choose This!";
+    saveBtnClck.addEventListener("click", omgSaveYum);
+    saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
+    img.setAttribute("alt", `Tantalizing image of ${recipeSlct.label}`);
     img.src = recipeSlct.image;
-    img.style.cssText = 'padding: 20px; border: solid 1px';
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "font-weight-bold");
+    recipeLabel.setAttribute("class", "card-title");
     var recipeIngred = document.createElement("ul");
+    recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
-
-    link.appendChild(img);
-    recipeCont.append(recipeLabel, link, recipeIngred);
+    viewRecipeClck.appendChild(viewRecipe);
+    saveBtnClck.appendChild(saveRecipe);
+    btnCol.appendChild(btnRow2);
+    btnRow2.append(viewRecipeClck, saveBtnClck);
+    btnRow.appendChild(btnCol);
+    recipeCont.append(recipeLabel, img, btnRow, recipeIngred);
     recipeImageEl.append(recipeCont);
   }
 }
+
+var omgSaveYum = function (event) {
+  event.target;
+  saveObj.saveIngreds = [];
+  var saveDetails = this.closest("section");
+  var saveTitle = saveDetails.firstChild.innerHTML;
+  (saveObj.saveLabel).splice(0,1, saveTitle);
+  var ingredSaveToObj = saveDetails.lastChild.children;
+  for (let i = 0; i < ingredSaveToObj.length; i++) {
+    const element = ingredSaveToObj[i];
+    (saveObj.saveIngreds).push(element.innerHTML)
+  }
+  var saveImgToObj = saveDetails.firstChild.nextSibling.src;
+  (saveObj.saveImg).splice(0,1, saveImgToObj);
+  localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
+}
+
+// var recipeUrl = function (event) {
+//   event.target;
+//   UrlInd = this.closest("section").getAttribute("id");
+
+// };
+
