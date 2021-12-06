@@ -1,6 +1,6 @@
-//owen seatgeek ID:
-//var Client ID: MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0
-//var secretid = 4429e1ae22c0aa3ee55fa52470a44d43b92d5a5c9c50e39ea7debc50f009246cS
+// owen seatgeek ID:
+// var Client ID: MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0
+// var secretid = 4429e1ae22c0aa3ee55fa52470a44d43b92d5a5c9c50e39ea7debc50f009246cS
 // luc seatgeek ID:
 // var clientID = "MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1";
 // luc seatgeek API:
@@ -15,7 +15,7 @@
 // ross appid
 // var appid = "0011fe5c";
 
-//test
+// test
 
 // luc appid
 var appid ="5ce86110";
@@ -26,70 +26,103 @@ var appid ="5ce86110";
 // luc api key
 var apikey = "eced3b68dfd63d133724d406c306074c";	
 
-var recipeImageEl = document.querySelector(".recipeContainer");
+// var recipeImageEl = document.querySelector(".recipeContainer");
 
 // api is being called
-var TESTFETCH = function () {
+
+// var TESTFETCH = function () {
+
+// var TESTFETCH = function (city) {
+
   //user inputs name of ingredient and number of chosen ingredients
-  var ingredientName1 = $("#ingredientName1").val();
-  var ingredientName2 = "&q=" + $("#ingredientName2").val();
-  var ingredientName3 = "&q=" + $("#ingredientName3").val();
-  var ingredientName4 = "&q=" + $("#ingredientName4").val();
-  var ingredientNumber = $(".ingredientNumber :selected").val();
+  // var ingredientName1 = $("#ingredientName1").val();
+  // var ingredientName2 = "&q=" + $("#ingredientName2").val();
+  // var ingredientName3 = "&q=" + $("#ingredientName3").val();
+  // var ingredientName4 = "&q=" + $("#ingredientName4").val();
+  // var ingredientNumber = $(".ingredientNumber :selected").val();
 
   // edit the below link with the fetch URL.
-  var runTest = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientName1}${ingredientName2}${ingredientName3}${ingredientName4}&app_id=5ce86110&app_key=eced3b68dfd63d133724d406c306074c&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=url&field=calories&ingr=${ingredientNumber}`;
-  fetch(runTest)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        alert("input invalid");
-        return;
-      }
-    })
-    .then(function (data) {
+  // var runTest = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientName1}${ingredientName2}${ingredientName3}${ingredientName4}&app_id=5ce86110&app_key=eced3b68dfd63d133724d406c306074c&cuisineType=American&mealType=Dinner&random=true&field=label&field=image&field=ingredientLines&field=url&field=calories&ingr=${ingredientNumber}`;
+  // fetch(runTest)
+  //   .then(function (response) {
+  //     if (response.ok) {
+  //       return response.json();
+  //     } else {
+  //       alert("input invalid");
+  //       return;
+  //     }
+  //   })
+  //   .then(function (data) {
       // check console log to confirm fetch details
-      console.log(data);
-      displayImage(data);
-    });
-};
+//       console.log(data);
+//       displayImage(data);
+//     });
+// };
 
 
-// user clicks on submit button to run api fetch
-$(".userInput").submit(function(e) {
-  e.preventDefault();
-  recipeImageEl.innerHTML = "";
+// // user clicks on submit button to run api fetch
+// $(".userInput").submit(function(e) {
+//   e.preventDefault();
+//   recipeImageEl.innerHTML = "";
   // hardcode specific fetch test request in thebelow call w a string.
-  TESTFETCH();
-})
+//   TESTFETCH();
+// })
 
 
-// displays image of recipe
-function displayImage(d) {
-  console.log(d);
-  for (let i = 0; i < d.hits.length; i++) {
-    var recipeCont = document.createElement("section");
-    recipeCont.setAttribute("class", "col-3 px-5 py-2");
-    var recipeSlct = d.hits[i].recipe;
-    var link = document.createElement("a")
-    link.setAttribute("href", recipeSlct.url);
-    link.setAttribute("target", "_blank");
-    var img = document.createElement("img");
-    img.src = recipeSlct.image;
-    img.style.cssText = 'padding: 20px; border: solid 1px';
-    var recipeLabel = document.createElement("p");
-    recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "font-weight-bold");
-    var recipeIngred = document.createElement("ul");
-    for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
-      var recipeIngredList = document.createElement("li");
-      recipeIngredList.textContent = recipeSlct.ingredientLines[i];
-      recipeIngred.append(recipeIngredList);
-    }
+// // displays image of recipe
+// function displayImage(d) {
+//   console.log(d);
+//   for (let i = 0; i < d.hits.length; i++) {
+//     var recipeCont = document.createElement("section");
+//     recipeCont.setAttribute("class", "col-3 px-5 py-2");
+//     var recipeSlct = d.hits[i].recipe;
+//     var link = document.createElement("a")
+//     link.setAttribute("href", recipeSlct.url);
+//     link.setAttribute("target", "_blank");
+//     var img = document.createElement("img");
+//     img.src = recipeSlct.image;
+//     img.style.cssText = 'padding: 20px; border: solid 1px';
+//     var recipeLabel = document.createElement("p");
+//     recipeLabel.textContent = recipeSlct.label;
+//     recipeLabel.setAttribute("class", "font-weight-bold");
+//     var recipeIngred = document.createElement("ul");
+//     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
+//       var recipeIngredList = document.createElement("li");
+//       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
+//       recipeIngred.append(recipeIngredList);
+//     }
 
-    link.appendChild(img);
-    recipeCont.append(recipeLabel, link, recipeIngred);
-    recipeImageEl.append(recipeCont);
-  }
-}
+//     link.appendChild(img);
+//     recipeCont.append(recipeLabel, link, recipeIngred);
+//     recipeImageEl.append(recipeCont);
+//   }
+// }
+
+var jumbotron = document.querySelector(".jumbotron");
+var slider = document.querySelector(".slider");
+var navbar = document.querySelector(".navbar");
+var timeline = new TimelineMax();
+
+// clicking the recipe match icon takes you to recipe match page
+$(".recipeMatch").on("click", function () {
+  location.href = "./recipe2.html";
+});
+
+// clicking the event icon takes you to event selector page
+$(".seatGeek").on("click", function () {
+  location.href = "./seatGeek.html";
+});
+
+// clicking the date night image takes you to recipe match page with a next button
+$(".dateNight").on("click", function () {
+  location.href = "./dateNight.html";
+});
+
+// animates main section to slowly display on load
+timeline.fromTo(jumbotron, 1, {height:"0%"}, {height:"100%", ease: Power1.easeInOut} 
+).fromTo(jumbotron, 1.2, {width:"40%"}, {width: "90%", ease: Power1.easeInOut})
+
+// black slider display on page load
+.fromTo(slider, 1, {x: "-100%"}, {x: "0%", ease: Power1.easeInOut}, "-=1.2")
+
+.fromTo(navbar, 1.2, {opacity:0}, {opacity: 1}, "-=.5")
