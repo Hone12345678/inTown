@@ -19,42 +19,50 @@
         <header class="jumbotron">
             <h1>What's Going on Tonight</h1>
         </header>
-
         <main class="container pb-3">
             <div class="col">
                 <form class="eventInput form-row">
                     <div class="col-10">
                         <div class="row">
-                            <select class="col-12 pr-0 btn-block" id="eventSelect">
+                            <select class="col-12 pr-0 " id="eventSelect">
                                 <option value="">What do you feel like doing?</option>
                                 <option value="concert">concert</option>
                                 <option value="sportsball">sportsball</option>
                             </select>
-                            <div class="col-6 pl-0">
-                                <input type="text" id="userZip" class="form-control" placeholder="enter your zip code">
-                                <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <input type="text" id="userRange" class="form-control" placeholder="enter your desired range">
-                                    <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <input type="text" id="userEventType" class="form-control" placeholder="event type">
-                                    <input type="submit" class="submitBtn btn-block col-6 mx-auto" value="Submit">
-                                </div>
+                            <select class="col-12 pr-0 " id="userRange">
+                                <option value="">Travel Distance</option>
+                                <option value="5mi">5 miles</option>
+                                <option value="10mi">10 miles</option>
+                                <option value="15mi">15 miles</option>
+                                <option value="100mi">20 miles</option>
+                            </select>
+                            <div class="col-12 pl-0 input-group-lg">
+                                <input type="text" id="userZip" class="form-control " placeholder="enter your zip code">
+                            </div>
+                        </div>
+                        <div> 
+                            <input type="submit" class="userInfoBtn btn-primary btn-lg btn-block " value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                        <div class="card-deck">
+                            <div class="row eventPostersContainer">
                                 
-                                </div>
-                                </form>
-                                </div>
-                                </main>
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="eventPostersContainer">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+
 
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

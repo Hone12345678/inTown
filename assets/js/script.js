@@ -29,7 +29,7 @@ var apikey = "eced3b68dfd63d133724d406c306074c";
 var recipeImageEl = document.querySelector(".recipeContainer");
 
 // api is being called
-var TESTFETCH = function (city) {
+var TESTFETCH = function () {
   //user inputs name of ingredient and number of chosen ingredients
   var ingredientName1 = $("#ingredientName1").val();
   var ingredientName2 = "&q=" + $("#ingredientName2").val();
