@@ -16,8 +16,8 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
-<title>Document</title>
+    <link rel="stylesheet" href="assets/css/recipestyle.css"/>
+<title>Make Tonight's Dream Recipe!</title>
 </head>
 <body>
     <header class="jumbotron">
@@ -26,23 +26,23 @@
 
     <main class="container pb-3">
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
         <form class="form-row userInput">
           <div class="col-10">
             <div class="row">
           <div class="col-6 pl-0 ">
-            <input type="text" id="ingredientName1" class="form-control" placeholder="Enter an ingredient">
+            <input type="text" id="ingredientName1" class="form-control" placeholder="Enter ingredient">
           </div>
           <div class="col-6 p-0">
-            <input type="text" id="ingredientName2" class="form-control" placeholder="Enter another ingredient">
+            <input type="text" id="ingredientName2" class="form-control" placeholder="Enter ingredient">
           </div>
-          <div class="col-6 pl-0">
-            <input type="text" id="ingredientName3" class="form-control" placeholder="Enter another ingredient">
+          <div class="col-6 pl-0 mb-2">
+            <input type="text" id="ingredientName3" class="form-control" placeholder="Enter ingredient">
           </div>
-          <div class="col-6 p-0">
-            <input type="text" id="ingredientName4" class="form-control" placeholder="Enter another ingredient">
+          <div class="col-6 p-0 mb-2">
+            <input type="text" id="ingredientName4" class="form-control" placeholder="Enter ingredient">
           </div>
-          <select class="col-6 pr-0 ingredientNumber">
+          <select class="col-6 p-0 ingredientNumber">
             <option value=""># of ingredients</option>
             <option value="6">6</option>
             <option value="7">7</option>
@@ -57,32 +57,61 @@
       <div class="col">
       <form class="eventInput form-row">
           <div class="col-10">
-            <div class="row">
-        <select class="col-12 pr-0 btn-block" id="eventSelect">
-          <option value="">What do you feel like doing?</option>
-          <option value="concert">concert</option>
-          <option value="sportsball">sportsball</option>
-        </select>
-        <div class="col-6 pl-0">
-          <input type="text" id="artist-name" class="form-control" placeholder="enter an artist">
-        </div>
-        <div class="col-6 p-0">
-          <input type="text" id="team-name" class="form-control" placeholder="enter a team">
-        </div>
-        <input type="submit" class="submitBtn2 btn-block col-6 mx-auto" value="Submit">
+            <div class="row justify-content-center" id="nextBtnId">
+        <input type="submit" class="btn-block col-8 col-sm-12" value="Daddy's Fatty Next Button" id="nextBtn">
       </div>
       </div>
       </form>
     </div>
     </div>
     </main>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row recipeContainer">
       </div>
+    </div> -->
+    <div class="container">
+    <div class="card-deck">
+      <div class="row">
+        <div class="col-12">
+          <div class="row recipeContainer">
+          </div>
+      </div>
+      </div>
     </div>
+  </div>
+  <div class="modal fade" id="task-form-modal" tabindex="-1" role="dialog" aria-labelledby="task-form-modal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="task-form-modal">Add New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="modalTaskDescription">Task description</label>
+            <textarea class="form-control" id="modalTaskDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="modalDueDate">Due date</label>
+            <input type="text" class="form-control" id="modalDueDate" placeholder="mm/dd/yyyy" autocomplete="off" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-save">Save Task</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="assets/js/recipe.js"></script>
 </body>
 </html>
