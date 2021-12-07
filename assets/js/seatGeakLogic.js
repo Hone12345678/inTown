@@ -3,7 +3,7 @@
 
 
 var currentdate = new Date();
-var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate()
+var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + (currentdate.getDate()+1)
 
 console.log(datetime)
 
@@ -32,27 +32,51 @@ var getUserEvents = function () {
 function renderItem(data) {
     console.log(data.events[0].performers[0].image);
     $(".src").attr("src",data.events[0].performers[0].image);
-    var imageContainer = $(".eventPostersContainer");
+    var eventPosting = $(".eventPostersContainer");
     for (let i = 0; i < data.events.length; i++) {
+
         var imageSection = $("<section></section>");
         imageSection.attr("class", "col-3 px-5 py-2");
         var linkEl = $("<a></a>");
+
         linkEl.attr("href", data.events[i].url);
         linkEl.attr("target", "_blank");
+
         var imageEl = $("<img>").attr("id", "eventPoster");
         imageEl.attr("src", data.events[i].performers[0].image);
         imageEl.appendTo(linkEl);
-        linkEl.appendTo(imageContainer, imageEl);
-        var eventDescriptEL = $("<p></p>").attr("id", "eventTitle");
+        linkEl.appendTo(eventPosting);
+
+        var eventInfo = $("<div></div>").attr("class","eventInfo col-6");
+
+        var eventDescriptEL = $("<h3></h3>").attr("id", "eventTitle card-title",);
         eventDescriptEL.text(data.events[i].title);
-        eventDescriptEL.appendTo(imageContainer);
-        var eventDescriptEL = $("<p></p>").attr("id", "eventType");
+        eventDescriptEL.appendTo(eventInfo);
+        eventInfo.appendTo(eventPosting);
+        
+        var eventDescriptEL = $("<p> </p>").attr("id", "eventType");
         eventDescriptEL.text(data.events[i].type);
-        eventDescriptEL.appendTo(imageContainer);
-        var eventDescriptEL = $("<p></p>").attr("id", "eventDateTime");
-        eventDescriptEL.text(data.events[i].datetime_utc);
-        eventDescriptEL.appendTo(imageContainer);
-       
+        eventDescriptEL.appendTo(eventInfo);
+        eventInfo.appendTo(eventPosting);
+
+        var eventDescriptEL = $("<p> </p>").attr("id", "eventDateTime");
+        eventDescriptEL.text(data.events[i].datetime_local);
+        eventDescriptEL.appendTo(eventInfo);
+        eventInfo.appendTo(eventPosting);
+
+        var eventlocationEL= $("<p></p>").attr("id", "eventDateLocation");
+        eventlocationEL.text(data.events[i].venue.name);
+        eventlocationEL.appendTo(eventInfo);
+        eventInfo.appendTo(eventPosting);
+
+
+        var saveButton =$("<button>Yes Please!</button>").attr("id","saveTheEvent");
+        saveButton.appendTo(eventInfo);
+        eventInfo.appendTo(eventPosting);
+
+        
+
+        
      
     }
 
@@ -66,3 +90,11 @@ $(".eventInput").submit(function (event) {
     getUserEvents();
 })
 
+
+// wroking on saving to local storage
+$("#saveTheEvent").on("click", function (event) {
+    console.log(event)
+    event.target;
+    
+
+})
