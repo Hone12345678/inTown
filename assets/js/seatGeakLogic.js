@@ -1,6 +1,16 @@
 // var myClientID ="MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0";
 // var mySID = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3";
 
+// luc client id = MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1
+// luc mySID = 2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3
+
+var saveArray = {
+    saveTitle: [],
+    saveImage: [],
+    saveDate: [],
+    saveLocation: [],
+    saveUrl: []
+};
 
 var currentdate = new Date();
 var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + (currentdate.getDate()+1)
@@ -11,7 +21,7 @@ var getUserEvents = function () {
 
     var userZip = $("#userZip").val();
     var userRange = $("#userRange").val();
-    var gatherUserInput = `https://api.seatgeek.com/2/events?client_id=MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0&geoip=${userZip}&range=${userRange}`;
+    var gatherUserInput = `https://api.seatgeek.com/2/events?client_id=MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1&geoip=${userZip}&range=${userRange}`;
     fetch(gatherUserInput).then(function (response) {
             console.log(response);
             if (response.ok) {
@@ -71,10 +81,9 @@ function renderItem(data) {
 
 
         var saveButton =$("<button>Yes Please!</button>").attr("id","saveTheEvent");
+        saveButton.on("click", saveTheEvent);
         saveButton.appendTo(eventInfo);
         eventInfo.appendTo(eventPosting);
-
-        
 
         
      
@@ -92,9 +101,25 @@ $(".eventInput").submit(function (event) {
 
 
 // wroking on saving to local storage
-$("#saveTheEvent").on("click", function (event) {
-    console.log(event)
-    event.target;
-    
+// $("#saveTheEvent").on("click", function (event) {
+//     console.log(event)
+//     event.target;
+        
 
-})
+// })
+
+var saveTheEvent = function(event) {
+    event.target;
+    console.log("clicked");
+
+    // THIS DOES NOT TARGET THE EVENT SELECT TO IT RETURNS A NULL VALUE
+    var saveDetails = this.closest("section");
+    console.log("saveDetails", saveDetails)
+
+
+    var saveName = saveDetails.secondChild.innerHTML;
+    saveArray.saveTitle.splice(0,1, saveName);
+
+    console.log(saveArray)
+}
+
