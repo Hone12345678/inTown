@@ -33,7 +33,11 @@ var saveObj = {
   saveUrl: [],
 };
 
+var cancelButton = document.getElementById('cancel');
+var dialog = document.getElementById('dialogModal');
+console.log(dialog.firstChild.nextSibling.firstElementChild);
 var recipeImageEl = document.querySelector(".recipeContainer");
+var badInput = dialog.firstChild.nextSibling.firstElementChild;
 
 // api is being called
 var recipeFetch = function () {
@@ -51,14 +55,21 @@ var recipeFetch = function () {
       if (response.ok) {
         return response.json();
       } else {
-        alert("input invalid");
+        badInput.textContent = "Please select a total number of ingredients (or less) you would like your recipe selections to have!";
+        badTimesModal();
         return;
       }
     })
     .then(function (data) {
       // check console log to confirm fetch details
       console.log(data);
-      displayImage(data);
+      if (data.hits.length > 0) {
+        displayImage(data);
+      }
+      else {
+        badInput.textContent = "Either your ingredients were misspelled or your combination of ingredients didn't yield any recipes. Please adjust your ingredients and try again!";
+        badTimesModal();
+      }
     });
 };
 
@@ -94,7 +105,6 @@ function displayImage(d) {
     viewRecipe.setAttribute("target", "_blank");
     viewRecipe.setAttribute("href", recipeSlct.url);
     viewRecipe.setAttribute("class", "btn btn-primary btn-sm btn-block");
-    // viewRecipeClck.addEventListener("click", recipeUrl);
     var saveRecipe = document.createElement("button");
     saveRecipe.textContent = "Choose This!";
     saveBtnClck.addEventListener("click", omgSaveYum);
@@ -142,7 +152,6 @@ else{
     viewRecipe.setAttribute("target", "_blank");
     viewRecipe.setAttribute("href", recipeSlct.url);
     viewRecipe.setAttribute("class", "btn btn-primary btn-sm btn-block");
-    // viewRecipeClck.addEventListener("click", recipeUrl);
     var saveRecipe = document.createElement("button");
     saveRecipe.textContent = "Choose This!";
     saveBtnClck.addEventListener("click", omgSaveYum);
@@ -169,10 +178,11 @@ else{
     recipeImageEl.append(recipeCont);
   }
 }
-
+};
 
 var omgSaveYum = function (event) {
   event.target;
+  console.log("click");
   saveObj.saveIngreds = [];
   var saveDetails = this.closest("section");
   var saveTitle = saveDetails.firstChild.innerHTML;
@@ -189,4 +199,11 @@ var omgSaveYum = function (event) {
   localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
   console.log(saveObj);
 }
+
+
+function badTimesModal() {
+    dialog.showModal();
+  cancelButton.addEventListener('click', function() {
+    dialog.close();
+  });
 };
