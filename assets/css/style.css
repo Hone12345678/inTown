@@ -55,6 +55,11 @@ main {
     align-items: center;
 }
 
+/* .eventsDisplay{
+
+padding: 100px
+} */
+
 .jumbotron {
     height: 60%;
     width: 90%;
@@ -72,6 +77,10 @@ main {
     font-weight: lighter;
     padding-top: 20px;
     color: #e7e7e7;
+}
+
+h3 {
+    font-family: 'Shalimar', cursive;
 }
 
 .text {
