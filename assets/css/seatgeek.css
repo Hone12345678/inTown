@@ -102,3 +102,26 @@ img:hover {
 #eventSelect {
     padding: 7px 0px;
 }
+
+#dialogModal{
+    margin:auto;
+    width: 30%;
+}
+
+dialog form p {
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top:10% ;
+    font-size: medium;
+
+  }
+
+  #saveTheEvent{
+    margin:auto;
+    width: 30%;
+    padding-top:1%;
+    padding-bottom:1%;
+    
+  }
+
+
