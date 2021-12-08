@@ -4,7 +4,7 @@
 // luc client id = MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1
 // luc mySID = 2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3
 
-var saveArray = {
+var saveObj = {
     saveTitle: [],
     saveImage: [],
     saveDate: [],
@@ -84,11 +84,7 @@ function renderItem(data) {
         saveButton.on("click", saveTheEvent);
         saveButton.appendTo(eventInfo);
         eventInfo.appendTo(eventPosting);
-
-        
-     
     }
-
 }
 
 
@@ -110,16 +106,19 @@ $(".eventInput").submit(function (event) {
 
 var saveTheEvent = function(event) {
     event.target;
-    console.log("clicked");
-
     // THIS DOES NOT TARGET THE EVENT SELECT TO IT RETURNS A NULL VALUE
-    var saveDetails = this.closest("section");
-    console.log("saveDetails", saveDetails)
+    var saveDetails = this.closest("div");
+    saveObj.saveUrl.splice(0, 1, saveDetails.previousSibling.href);
+    saveObj.saveImage.splice(0, 1, saveDetails.previousSibling.firstChild.src);
+    saveObj.saveTitle.splice(0, 1, saveDetails.firstChild.innerText);
+    saveObj.saveDate.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.innerText);
+    saveObj.saveLocation.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.nextSibling.innerText);
+console.log(saveObj);
+    localStorage.setItem("savedEvent", JSON.stringify(saveObj));
 
+    // var saveName = saveDetails.secondChild.innerHTML;
+    // saveArray.saveTitle.splice(0,1, saveName);
 
-    var saveName = saveDetails.secondChild.innerHTML;
-    saveArray.saveTitle.splice(0,1, saveName);
-
-    console.log(saveArray)
+    // console.log(saveArray)
 }
 
