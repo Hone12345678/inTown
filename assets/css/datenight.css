@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #e7e7e7;
+}
+
 .slider {
     position: absolute;
     top: 0;
@@ -70,6 +74,7 @@ main {
     padding: 5px;
     text-align: center;
     font-size: 35px;
+    padding-bottom: 15px;
 }
 
 .text {
@@ -84,4 +89,8 @@ main {
 img {
     height: 300px;
     width: auto;
+}
+
+.recipeContainer {
+    padding-bottom: 20px;
 }
