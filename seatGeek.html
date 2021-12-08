@@ -2,100 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shalimar&family=WindSong&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/seatgeek.css" />
-    <title>lastMinute-Event</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shalimar&family=WindSong&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/seatgeek.css" />
+  <title>lastMinute-Event</title>
 </head>
 
 <body>
 
-    <body>
-        <header class="jumbotron">
-            <nav class="d-flex navbar">
-                <h1 class="placeholder">What's Going on Tonight?</h1>
-                <ul>
-                  <li>
-                    <a href="./index.html">
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./recipe2.html">
-                      Recipe Match
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./seatGeek.html">
-                      Event Finder
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./dateNight.html">
-                      Date Night
-                    </a>
-                  </li>
-                </ul>
-              </nav> 
-        </header>
-        <main class="container pb-3">
-            <div class="col">
-                <form class="eventInput form-row">
-                    <div class="col-10">
-                        <div class="row eventsTitle">
-                            <h2>Search What's Going on in Your Area!</h2>
-                            <select class="col-12 pr-0 " id="userRange">
-                                <option value="">Travel Distance</option>
-                                <option value="5mi">5 miles</option>
-                                <option value="10mi">10 miles</option>
-                                <option value="15mi">15 miles</option>
-                                <option value="20mi">20 miles</option>
-                                <option value="25mi">25 miles</option>
-                                <option value="50mi">50 miles</option>
-                                <option value="50mi">100 miles</option>
-                            </select>
-                            <div class="col-12 pl-0 input-group-lg">
-                                <input type="text" id="userZip" class="form-control " placeholder="enter your zip code">
-                            </div>
-                        </div>
-                        <div> 
-                            <input type="submit" class="userInfoBtn btn-primary btn-lg btn-block " value="Submit">
-                        </div>
-                    </div>
-                </form>
+  <body>
+    <header class="jumbotron">
+      <nav class="d-flex navbar">
+        <h1 class="placeholder">What's Going on Tonight?</h1>
+        <ul>
+          <li>
+            <a href="./index.html">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="./recipe2.html">
+              Recipe Match
+            </a>
+          </li>
+          <li>
+            <a href="./seatGeek.html">
+              Event Finder
+            </a>
+          </li>
+          <li>
+            <a href="./dateNight.html">
+              Date Night
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container pb-3">
+      <div class="col">
+        <form class="eventInput form-row">
+          <div class="col-10 mx-auto">
+            <div class="row eventsTitle" style="width: 600px;">
+              <h2>Search What's Going on in Your Area!</h2>
+              <div class=" col-12 pl-0 input-group-lg">
+                <input type="text" id="userZip" class="form-control" placeholder="Enter Your Zip Code">
+              </div>
+              <select class="col-12 pr-0 " id="userRange">
+                <option value="">Travel Distance</option>
+                <option value="5mi">5 miles</option>
+                <option value="10mi">10 miles</option>
+                <option value="15mi">15 miles</option>
+                <option value="20mi">20 miles</option>
+                <option value="25mi">25 miles</option>
+                <option value="50mi">50 miles</option>
+                <option value="50mi">100 miles</option>
+              </select>
             </div>
-        </main>
+            <div class="col-5">
+              <input type="submit" class="userInfoBtn btn-primary btn-lg btn-block " value="Submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
 
-        <div class="eventsDisplay">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <div class="card-deck ">
-                            <div class="row eventPostersContainer d-flex justify-content-center">
-        
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="eventsDisplay">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="card-deck ">
+              <div class="row eventPostersContainer d-flex justify-content-center">
+
+              </div>
             </div>
+          </div>
         </div>
-        
+      </div>
+    </div>
+    
+
+    <dialog id="dialogModal">
+      <form method="dialog">
+        <p></p>
+        <menu>
+          <button id="cancel" class="btn btn-outline-dark btn-lg btn-block" type="reset">Sounds Good</button>
+        </menu>
+      </form>
+    </dialog>
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
 
 
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="assets/js/seatGeakLogic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/seatGeakLogic.js"></script>
 
-    </body>
+  </body>
 
 </html>
