@@ -20,6 +20,11 @@
     font-size: 50px;
 }
 
+#dialogModal p {
+    font-family: 'Shalimar', cursive;
+    font-size: 30px;
+}
+
 nav {
     margin: 7px 0;
     justify-content: space-between;
@@ -127,11 +132,14 @@ dialog form p {
 
   }
 
-  /* #saveTheEvent{
-    margin:auto;
-    width: 30%;
-    padding-top:1%;
-    padding-bottom:1%;
-    
-  } */
-  /* #saveTheEvent: hover */
+@media screen and (min-width: 500px) {
+    .eventInfo {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 575px) {
+    .eventInfo {
+        text-align: left;
+    }
+}
