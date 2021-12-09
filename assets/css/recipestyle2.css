@@ -85,7 +85,12 @@ dialog form p {
   font-size: 40px;
 }
 
-.recipeText, #dialogModal p {
+.recipeText {
+  font-family: 'Shalimar', cursive;
+  color: #e7e7e7;
+}
+
+#dialogModal p {
   font-family: 'Shalimar', cursive;
 }
 
@@ -102,7 +107,7 @@ main{
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   border-radius: 15px;
-  background: linear-gradient( #bdaf9e 25%, black);
+  background: linear-gradient( black 25%, #bdaf9e);
 }
 
 section{
@@ -127,6 +132,10 @@ section{
   border-radius: 15px;
 }
 
+.titleRecipe {
+  min-height: 73px;
+}
+
 .btn-primary, .btn-success {
   background-color: black;
   color: #e7e7e7;
@@ -138,6 +147,11 @@ ul {
 
 section {
   transition-delay: 1s;
+}
+
+dialog button:hover {
+  opacity: 70%;
+  transition: 500ms;
 }
 
 @media screen and (min-width: 500px) {
