@@ -118,7 +118,7 @@ function displayImage(d) {
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "card-title border-bottom border-dark");
+    recipeLabel.setAttribute("class", "card-title border-bottom border-dark titleRecipe");
     var recipeIngred = document.createElement("ul");
     recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
