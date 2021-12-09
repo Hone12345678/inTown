@@ -48,47 +48,56 @@ var getUserEvents = function () {
 };
 
 function renderItem(data) {
-    console.log(data.events[0].performers[0].image);
-    $(".src").attr("src",data.events[0].performers[0].image);
     for (let i = 0; i < data.events.length; i++) {
 
         var linkEl = $("<a></a>");
-        linkEl.attr("href", data.events[i].url);
-        linkEl.attr("target", "_blank");
-        
+        linkEl.attr("href", data.events[i].url)
+        .attr("target", "_blank")
+        .attr("class", "col-sm-12 col-md-4 py-2");
 
-        var imageEl = $("<img>").attr("id", "eventPoster");
+        var imageEl = $("<img>");
         imageEl.attr("src", data.events[i].performers[0].image);
+        imageEl.attr("class", "col")
         imageEl.appendTo(linkEl);
-        linkEl.appendTo(eventPosting);
+        console.log(imageEl);
 
-        var eventInfo = $("<div></div>").attr("class","eventInfo col-lg-8 col-sm-6");
+        var eventContainerEl = $("<div></div>");
+        eventContainerEl.addClass("border border-dark col-sm-12 mb-3 bckgrnd");
 
-        var eventDescriptEL = $("<h3></h3>").attr("id", "eventTitle card-title",);
-        eventDescriptEL.text(data.events[i].title);
-        eventDescriptEL.appendTo(eventInfo);
-        eventInfo.appendTo(eventPosting);
+        var eventRowEl = $("<div></div>");
+        eventRowEl.attr("class", "row mb-2");
         
-        var eventDescriptEL = $("<p> </p>").attr("id", "eventType");
-        eventDescriptEL.text(data.events[i].type);
-        eventDescriptEL.appendTo(eventInfo);
-        eventInfo.appendTo(eventPosting);
+        var eventRowEl2 = $("<div></div>");
+        eventRowEl2.attr("class", "row");
 
-        var eventDescriptEL = $("<p> </p>").attr("id", "eventDateTime");
-        eventDescriptEL.text(data.events[i].datetime_local);
-        eventDescriptEL.appendTo(eventInfo);
-        eventInfo.appendTo(eventPosting);
+        var eventInfo = $("<div></div>");
+        eventInfo.attr("class", "col-sm-12 col-md-8 py-2");
 
-        var eventlocationEL= $("<p></p>").attr("id", "eventDateLocation");
-        eventlocationEL.text(data.events[i].venue.name);
-        eventlocationEL.appendTo(eventInfo);
-        eventInfo.appendTo(eventPosting);
+        var eventTitle = $("<h3></h3>");
+        eventTitle.text(data.events[i].title);
+        eventTitle.appendTo(eventInfo);
+        
+        var eventType = $("<p> </p>");
+        eventType.text(data.events[i].type);
+        eventType.appendTo(eventInfo);
 
+        var eventDateTime = $("<p> </p>");
+        eventDateTime.text(data.events[i].datetime_local);
+        eventDateTime.appendTo(eventInfo);
 
-        var saveButton =$("<button>Yes Please!</button>").attr("id","saveTheEvent").attr("class","btn-secondary btn-sm")
+        var eventDateLocation= $("<p></p>");
+        eventDateLocation.text(data.events[i].venue.name);
+        eventDateLocation.appendTo(eventInfo);
+
+        var saveButton =$("<button>Yes Please!</button>").attr("class","btn-secondary btn-sm")
         saveButton.on("click", saveTheEvent);
         saveButton.appendTo(eventInfo);
-        eventInfo.appendTo(eventPosting);
+    
+        linkEl.prependTo(eventRowEl2);
+        eventInfo.appendTo(eventRowEl2);
+        eventRowEl2.appendTo(eventContainerEl);
+        eventContainerEl.appendTo(eventRowEl);
+        eventRowEl.appendTo(eventPosting);
     }
 }
 
@@ -99,7 +108,6 @@ $(".eventInput").submit(function (event) {
     eventPosting.html("");
     getUserEvents();
 })
-
 
 
 
@@ -124,9 +132,4 @@ var saveTheEvent = function(event) {
     saveObj.saveLocation.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.nextSibling.innerText);
 console.log(saveObj);
     localStorage.setItem("savedEvent", JSON.stringify(saveObj));
-
-    // var saveName = saveDetails.secondChild.innerHTML;
-    // saveArray.saveTitle.splice(0,1, saveName);
-
-    // console.log(saveArray)
 }
