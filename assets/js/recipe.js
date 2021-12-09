@@ -43,9 +43,9 @@ var badInput = dialog.firstChild.nextSibling.firstElementChild;
 var recipeFetch = function () {
   //user inputs name of ingredient and number of chosen ingredients
   var ingredientName1 = $("#ingredientName1").val();
-  var ingredientName2 = "&q=" + $("#ingredientName2").val();
-  var ingredientName3 = "&q=" + $("#ingredientName3").val();
-  var ingredientName4 = "&q=" + $("#ingredientName4").val();
+  var ingredientName2 = "%20" + $("#ingredientName2").val();
+  var ingredientName3 = "%20" + $("#ingredientName3").val();
+  var ingredientName4 = "%20" + $("#ingredientName4").val();
   var ingredientNumber = $(".ingredientNumber :selected").val();
 
   // edit the below link with the fetch URL.
@@ -55,7 +55,7 @@ var recipeFetch = function () {
       if (response.ok) {
         return response.json();
       } else {
-        badInput.textContent = "Please select a total number of ingredients (or less) you would like your recipe selections to have!";
+        badInput.textContent = "Please select the total number of ingredients (or less) that you would like your recipe selections to have!";
         badTimesModal();
         return;
       }
@@ -67,10 +67,11 @@ var recipeFetch = function () {
         displayImage(data);
       }
       else {
-        badInput.textContent = "Either your ingredients were misspelled or your combination of ingredients didn't yield any recipes. Please adjust your ingredients and try again!";
+        badInput.textContent = "Either one or more of your ingredients were misspelled or your combination of ingredients yielded no recipes. Please adjust your ingredients and try again!";
         badTimesModal();
       }
     });
+    console.log(runTest);
 };
 
 // user clicks on submit button to run api fetch
@@ -88,8 +89,11 @@ function displayImage(d) {
   for (let i = 0; i < 8; i++) {
     var recipeCont = document.createElement("section");
     recipeCont.setAttribute("class", "col-12 col-sm-6 col-lg-3 pr-3 py-2");
+    recipeCont.setAttribute("style", "transition: width 50000ms; transition-delay: 10000ms;");
     recipeCont.setAttribute("id", [i]);
     var recipeSlct = d.hits[i].recipe;
+    var recipeBrdr = document.createElement("div");
+    recipeBrdr.setAttribute("class", "border border-dark pl-4 pb-2 background");
     var btnRow = document.createElement("div");
     btnRow.setAttribute("class", "row");
     var btnCol = document.createElement("div");
@@ -101,12 +105,12 @@ function displayImage(d) {
     var saveBtnClck = document.createElement("div");
     saveBtnClck.setAttribute("class", "col-5 p-0");
     var viewRecipe = document.createElement("a");
-    viewRecipe.textContent = "Instrctns";
+    viewRecipe.textContent = "Recipe";
     viewRecipe.setAttribute("target", "_blank");
     viewRecipe.setAttribute("href", recipeSlct.url);
     viewRecipe.setAttribute("class", "btn btn-primary btn-sm btn-block");
     var saveRecipe = document.createElement("button");
-    saveRecipe.textContent = "Choose This!";
+    saveRecipe.textContent = "Choose!";
     saveBtnClck.addEventListener("click", omgSaveYum);
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
@@ -114,7 +118,7 @@ function displayImage(d) {
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "card-title");
+    recipeLabel.setAttribute("class", "card-title border-bottom border-dark");
     var recipeIngred = document.createElement("ul");
     recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
@@ -127,7 +131,8 @@ function displayImage(d) {
     btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
     btnRow.appendChild(btnCol);
-    recipeCont.append(recipeLabel, img, btnRow, recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow);
+    recipeCont.append(recipeBrdr, recipeIngred);
     recipeImageEl.append(recipeCont);
   }
 }
@@ -135,8 +140,11 @@ else{
   for (let i = 0; i < d.hits.length; i++) {
     var recipeCont = document.createElement("section");
     recipeCont.setAttribute("class", "col-12 col-sm-6 col-lg-3 pr-3 py-2");
+    recipeCont.setAttribute("style", "transition: width 50000ms; transition-delay: 10000ms;");
     recipeCont.setAttribute("id", [i]);
     var recipeSlct = d.hits[i].recipe;
+    var recipeBrdr = document.createElement("div");
+    recipeBrdr.setAttribute("class", "border border-dark pl-4 pb-2 background");
     var btnRow = document.createElement("div");
     btnRow.setAttribute("class", "row");
     var btnCol = document.createElement("div");
@@ -148,12 +156,12 @@ else{
     var saveBtnClck = document.createElement("div");
     saveBtnClck.setAttribute("class", "col-5 p-0");
     var viewRecipe = document.createElement("a");
-    viewRecipe.textContent = "Instrctns";
+    viewRecipe.textContent = "Recipe";
     viewRecipe.setAttribute("target", "_blank");
     viewRecipe.setAttribute("href", recipeSlct.url);
     viewRecipe.setAttribute("class", "btn btn-primary btn-sm btn-block");
     var saveRecipe = document.createElement("button");
-    saveRecipe.textContent = "Choose This!";
+    saveRecipe.textContent = "Choose!";
     saveBtnClck.addEventListener("click", omgSaveYum);
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
@@ -161,7 +169,7 @@ else{
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "card-title");
+    recipeLabel.setAttribute("class", "card-title border-bottom border-dark");
     var recipeIngred = document.createElement("ul");
     recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
@@ -174,9 +182,10 @@ else{
     btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
     btnRow.appendChild(btnCol);
-    recipeCont.append(recipeLabel, img, btnRow, recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow);
+    recipeCont.append(recipeBrdr, recipeIngred);
     recipeImageEl.append(recipeCont);
-  }
+    }
 }
 };
 
@@ -185,18 +194,19 @@ var omgSaveYum = function (event) {
   console.log("click");
   saveObj.saveIngreds = [];
   var saveDetails = this.closest("section");
-  var saveTitle = saveDetails.firstChild.innerHTML;
+  var saveTitle = saveDetails.firstChild.firstChild.innerHTML;
   saveObj.saveLabel.splice(0, 1, saveTitle);
   var ingredSaveToObj = saveDetails.lastChild.children;
   for (let i = 0; i < ingredSaveToObj.length; i++) {
     const element = ingredSaveToObj[i];
     saveObj.saveIngreds.push(element.innerHTML);
   }
-  var saveImgToObj = saveDetails.firstChild.nextSibling.src;
+  var saveImgToObj = saveDetails.firstChild.firstChild.nextSibling.src;
   saveObj.saveImg.splice(0, 1, saveImgToObj);
-  var saveRecipeUrl = saveDetails.children[2].firstChild.firstChild.firstChild.firstChild.href;
+  var saveRecipeUrl = saveDetails.firstChild.lastChild.firstChild.firstChild.firstChild.firstChild.href;
   (saveObj.saveUrl).splice(0,1, saveRecipeUrl);
   localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
+  console.log(saveRecipeUrl);
   console.log(saveObj);
 }
 

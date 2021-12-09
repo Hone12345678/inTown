@@ -51,8 +51,7 @@ nav ul li a:hover {
 }
 
 img {
-  height:200px;
-  width: 200px;
+  width: 100%;
   margin: 0 10px 10px 0;
 }
 
@@ -83,10 +82,76 @@ dialog form p {
 
 #dialogModal {
   margin:auto;
+  font-size: 40px;
+}
+
+.recipeText, #dialogModal p {
+  font-family: 'Shalimar', cursive;
+}
+
+body{
+  background: #bdaf9e;
+}
+
+.card-deck {
+  width: 100%;
+}
+
+main{
+  animation: fadeInAnimation ease 1000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  border-radius: 15px;
+  background: linear-gradient( #bdaf9e 25%, black);
+}
+
+section{
+  animation: fadeInAnimation ease 1000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        width: 0%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+     }
+}
+
+.background {
+  background: #e7e7e7;
+  border-radius: 15px;
+}
+
+.btn-primary, .btn-success {
+  background-color: black;
+  color: #e7e7e7;
+} 
+
+ul {
+  margin-left:20px;
+}
+
+section {
+  transition-delay: 1s;
 }
 
 @media screen and (min-width: 500px) {
-  body {
-      margin-left: 20px;
+  .recipeText {
+    font-size: 30px;
   }
+  }
+
+  @media screen and (min-width: 575px) {
+    body {
+        margin-left: 20px;
+    }
+  
+    .recipeText {
+      font-size: 40px;
+    }
   }

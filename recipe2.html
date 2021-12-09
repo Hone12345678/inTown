@@ -51,11 +51,12 @@
       </nav> 
     </header>
 
-    <main class="container pb-3">
-      <div class="row">
-        <div class="col-12 col-sm-6">
-          <form class="form-row userInput">
-            <div class="col-10">
+    <main class="container pb-3 mb-3 border border-dark">
+      <div class="row justify-content-center">
+        <p class="recipeText">Enter the ingredients you have or want to use in your recipe</p>
+        <div class="col-12 col-sm-12">
+          <form class="form-row justify-content-center userInput">
+            <div class="col-4">
               <div class="row">
                 <div class="col-6 pl-0">
                   <input
@@ -105,20 +106,6 @@
             </div>
           </form>
         </div>
-        <div class="col">
-          <form class="eventInput form-row">
-            <div class="col-10">
-              <div class="row justify-content-center" id="nextBtnId">
-                <input
-                  type="submit"
-                  class="btn-block col-8 col-sm-12"
-                  value="Daddy's Fatty Next Button"
-                  id="nextBtn"
-                />
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
     </main>
     <!-- <div class="container-fluid">
@@ -126,8 +113,7 @@
       </div>
     </div> -->
     <div class="container">
-      <div class="card-deck">
-        <div class="row">
+      <div class="card-deck row m-0">
           <div class="col-12">
             <div class="row recipeContainer"></div>
             <!-- Modal -->
@@ -141,12 +127,13 @@
     </form>
   </dialog>
           </div>
-        </div>
       </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
     <script src="assets/js/recipe.js"></script>
   </body>
 </html>
