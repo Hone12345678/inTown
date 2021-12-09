@@ -7,6 +7,7 @@
 
 var dialog = document.getElementById("dialogModal")
 var modalText = dialog.firstChild.nextSibling.firstChild.nextSibling
+var eventPosting = $(".eventPostersContainer");
 console.log(modalText);
 
 var saveObj = {
@@ -36,7 +37,7 @@ var getUserEvents = function () {
                 });
             } else {
 
-                modalText.textContent = "Looks like you forgot to enter your zip code or your desired search radius. Enter that information and we'll be able to suggest some events in your area!";
+                modalText.textContent = "Looks like your zip code was not accepted or a desired search radius was not selected. Make sure that information is updated and we'll be able to suggest some events in your area!";
                 solveTheProblem();
                 return;
             }
@@ -49,7 +50,6 @@ var getUserEvents = function () {
 function renderItem(data) {
     console.log(data.events[0].performers[0].image);
     $(".src").attr("src",data.events[0].performers[0].image);
-    var eventPosting = $(".eventPostersContainer");
     for (let i = 0; i < data.events.length; i++) {
 
         var linkEl = $("<a></a>");
@@ -96,7 +96,7 @@ function renderItem(data) {
 var eventsInArea = document.querySelector(".eventsInArea");
 $(".eventInput").submit(function (event) {
     event.preventDefault();
-   
+    eventPosting.html("");
     getUserEvents();
 })
 

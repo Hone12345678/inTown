@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #e7e7e7;
+    background: #bdaf9e;
 }
 
 .slider {
@@ -93,4 +93,68 @@ img {
 
 .recipeContainer {
     padding-bottom: 20px;
+}
+
+.recipeContainer p {
+    font-weight: bold;
+}
+
+.border {
+    border-radius: 15px;
+    background: #e7e7e7;
+}
+
+.recipeContainer ul {
+    font-weight: bold;
+    margin-left:20px;
+}
+
+.recipeContainer ul li {
+    font-weight:400;
+}
+
+.header {
+    color: #e7e7e7;
+    background: linear-gradient( black 25%, #bdaf9e);
+    font-family: 'Shalimar', cursive;
+    font-size: 55px;
+}
+
+header, .header {
+    animation: fadeInAnimation2 ease 800ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.recipeContainer{
+    animation: fadeInAnimation ease 1600ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+  }
+  
+  .eventContainer{
+    animation: fadeInAnimation ease 1600ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeInAnimation {
+      0% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+       }
+  }
+
+  @keyframes fadeInAnimation2 {
+    0% {
+        opacity: 0;
+        width: 0%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+     }
 }
