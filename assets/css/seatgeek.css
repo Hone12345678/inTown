@@ -74,7 +74,7 @@ body {
     
 }
 
-.container{
+.grad{
     background-color: #16130f;
     background: linear-gradient( black 25%, #bdaf9e);
 }
@@ -85,6 +85,11 @@ body {
   border-radius: 0;
   background: #000000;
   margin-bottom: 20px;
+}
+
+.bckgrnd {
+    border-radius: 15px;
+    background: #e7e7e7;
 }
 
 .title {
@@ -104,10 +109,8 @@ body {
 }
 
 img {
-    height:auto;
-    width: 300px;
-    margin: 20px 20px 45px 20px;
     opacity: 60%;
+    height: 100%;
 }
 
 img:hover {
@@ -130,6 +133,29 @@ dialog form p {
     padding-top:10% ;
     font-size: medium;
 
+  }
+  
+  header, .container {
+    animation: fadeInAnimation ease 1000ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  .bckgrnd {
+    animation: fadeInAnimation ease 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeInAnimation {
+      0% {
+          opacity: 0;
+          width: 0%;
+      }
+      100% {
+          opacity: 1;
+          width: 100%;
+       }
   }
 
 @media screen and (min-width: 500px) {
