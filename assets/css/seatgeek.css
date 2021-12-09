@@ -51,6 +51,12 @@ nav ul li a:hover {
     color: #e7e7e7;
 }
 
+h2{
+    font-family: 'Shalimar', cursive;
+    color: #e7e7e7
+}
+
+
 main {
     display: flex;
     justify-content: center;
@@ -58,10 +64,15 @@ main {
     margin-bottom: 5%;
 }
 
-/* .eventsDisplay{
+body {
+    background-color: #bdaf9e;
+    
+}
 
-padding: 100px
-} */
+.container{
+    background-color: #16130f;
+    background: linear-gradient( black 25%, #bdaf9e);
+}
 
 .jumbotron {
     padding: .5em;
@@ -116,10 +127,11 @@ dialog form p {
 
   }
 
-  #saveTheEvent{
+  /* #saveTheEvent{
     margin:auto;
     width: 30%;
     padding-top:1%;
     padding-bottom:1%;
     
-  }
+  } */
+  /* #saveTheEvent: hover */

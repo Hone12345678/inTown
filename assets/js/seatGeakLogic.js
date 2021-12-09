@@ -85,7 +85,7 @@ function renderItem(data) {
         eventInfo.appendTo(eventPosting);
 
 
-        var saveButton =$("<button>Yes Please!</button>").attr("id","saveTheEvent");
+        var saveButton =$("<button>Yes Please!</button>").attr("id","saveTheEvent").attr("class","btn-secondary btn-sm")
         saveButton.on("click", saveTheEvent);
         saveButton.appendTo(eventInfo);
         eventInfo.appendTo(eventPosting);
