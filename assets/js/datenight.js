@@ -31,8 +31,12 @@ var load = function() {
     // if local storage has data for event, display to DOM
     eventName.textContent = storedEvent.saveTitle;
     $(".eventImage").attr("src", storedEvent.saveImage);
-    eventDate.textContent = "Date: " + storedEvent.saveDate[0];  
-    eventLocation.textContent = "Location: " + storedEvent.saveLocation[0];  
+    var dateInfo = document.createElement("span");
+    dateInfo.textContent = storedEvent.saveDate[0]; 
+    eventDate.append(dateInfo); 
+    var locationInfo = document.createElement("span");
+    locationInfo.textContent = storedEvent.saveLocation[0]; 
+    eventLocation.append(locationInfo);  
     eventUrl.href = storedEvent.saveUrl[0];
 }
 load();
