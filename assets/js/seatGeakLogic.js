@@ -82,7 +82,12 @@ function renderItem(data) {
         eventType.appendTo(eventInfo);
 
         var eventDateTime = $("<p> </p>");
-        eventDateTime.text(data.events[i].datetime_local);
+        // create a variable to parse data from api call
+        var date = Date.parse(data.events[i].datetime_local);
+        // reformat parsed data using moment.js
+        var dateFormat = moment(date).format('LLL')
+        // grab text from formatted date and plug into eventDateTime, then append to DOM
+        eventDateTime.text(dateFormat);
         eventDateTime.appendTo(eventInfo);
 
         var eventDateLocation= $("<p></p>");
