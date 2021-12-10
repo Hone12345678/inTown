@@ -123,7 +123,7 @@ function displayImage(d) {
     var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
     recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
-    recipeIngred.setAttribute("class", "card-text");
+    recipeIngred.setAttribute("class", "card-text pr-2");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
@@ -178,7 +178,7 @@ else{
     var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
     recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
-    recipeIngred.setAttribute("class", "card-text");
+    recipeIngred.setAttribute("class", "card-text pr-2");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
@@ -199,23 +199,20 @@ else{
 
 var omgSaveYum = function (event) {
   event.target;
-  console.log("click");
   saveObj.saveIngreds = [];
-  var saveDetails = this.closest("section");
-  var saveTitle = saveDetails.firstChild.firstChild.innerHTML;
+  var saveDetails = this.closest("section").firstChild;
+  var saveTitle = saveDetails.firstChild.innerHTML;
   saveObj.saveLabel.splice(0, 1, saveTitle);
-  var ingredSaveToObj = saveDetails.lastChild.children;
-  for (let i = 0; i < ingredSaveToObj.length; i++) {
+  var ingredSaveToObj = saveDetails.lastChild.firstElementChild.children;
+  for (let i = 1; i < ingredSaveToObj.length; i++) {
     const element = ingredSaveToObj[i];
     saveObj.saveIngreds.push(element.innerHTML);
   }
-  var saveImgToObj = saveDetails.firstChild.firstChild.nextSibling.src;
+  var saveImgToObj = saveDetails.firstChild.nextSibling.src;
   saveObj.saveImg.splice(0, 1, saveImgToObj);
-  var saveRecipeUrl = saveDetails.firstChild.lastChild.firstChild.firstChild.firstChild.firstChild.href;
+  var saveRecipeUrl = saveDetails.firstChild.nextSibling.nextSibling.firstChild.firstChild.firstChild.firstChild.href;
   (saveObj.saveUrl).splice(0,1, saveRecipeUrl);
   localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
-  console.log(saveRecipeUrl);
-  console.log(saveObj);
 }
 
 
