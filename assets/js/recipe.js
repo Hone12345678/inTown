@@ -35,7 +35,6 @@ var saveObj = {
 
 var cancelButton = document.getElementById('cancel');
 var dialog = document.getElementById('dialogModal');
-console.log(dialog.firstChild.nextSibling.firstElementChild);
 var recipeImageEl = document.querySelector(".recipeContainer");
 var badInput = dialog.firstChild.nextSibling.firstElementChild;
 
@@ -62,7 +61,6 @@ var recipeFetch = function () {
     })
     .then(function (data) {
       // check console log to confirm fetch details
-      console.log(data);
       if (data.hits.length > 0) {
         displayImage(data);
       }
@@ -71,7 +69,6 @@ var recipeFetch = function () {
         badTimesModal();
       }
     });
-    console.log(runTest);
 };
 
 // user clicks on submit button to run api fetch
@@ -84,7 +81,6 @@ $(".userInput").submit(function (e) {
 
 // displays image of recipe
 function displayImage(d) {
-  console.log(d);
   if (d.hits.length > 7) {
   for (let i = 0; i < 8; i++) {
     var recipeCont = document.createElement("section");
@@ -94,16 +90,12 @@ function displayImage(d) {
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
     recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
-    var btnRow = document.createElement("div");
-    btnRow.setAttribute("class", "row");
-    var btnCol = document.createElement("div");
-    btnCol.setAttribute("class", "col-12");
     var btnRow2 = document.createElement("div");
-    btnRow2.setAttribute("class", "row");
+    btnRow2.setAttribute("class", "row pr-3");
     var viewRecipeClck = document.createElement("div");
-    viewRecipeClck.setAttribute("class", "col-5 p-0 mr-2 ml-2");
+    viewRecipeClck.setAttribute("class", "col-6 pr-1");
     var saveBtnClck = document.createElement("div");
-    saveBtnClck.setAttribute("class", "col-5 p-0");
+    saveBtnClck.setAttribute("class", "col-6 pl-1");
     var viewRecipe = document.createElement("a");
     viewRecipe.textContent = "Recipe";
     viewRecipe.setAttribute("target", "_blank");
@@ -114,12 +106,12 @@ function displayImage(d) {
     saveBtnClck.addEventListener("click", omgSaveYum);
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
-    img.setAttribute("class", "pr-3"),
     img.setAttribute("alt", `Tantalizing image of ${recipeSlct.label}`);
+    img.setAttribute("class", "pr-3")
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "card-title border-bottom border-dark titleRecipe");
+    recipeLabel.setAttribute("class", "card-title text-center border-bottom border-dark titleRecipe mr-3");
     var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
     recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
@@ -129,13 +121,11 @@ function displayImage(d) {
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
-    ingredContainerEl.append(recipeIngred);
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
-    btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
-    btnRow.appendChild(btnCol);
-    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
+    ingredContainerEl.append(recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow2, ingredContainerEl);
     recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
   }
@@ -149,16 +139,12 @@ else{
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
     recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
-    var btnRow = document.createElement("div");
-    btnRow.setAttribute("class", "row");
-    var btnCol = document.createElement("div");
-    btnCol.setAttribute("class", "col-12");
     var btnRow2 = document.createElement("div");
-    btnRow2.setAttribute("class", "row");
+    btnRow2.setAttribute("class", "row pr-3");
     var viewRecipeClck = document.createElement("div");
-    viewRecipeClck.setAttribute("class", "col-5 p-0 mr-2 ml-2");
+    viewRecipeClck.setAttribute("class", "col-6 pr-1");
     var saveBtnClck = document.createElement("div");
-    saveBtnClck.setAttribute("class", "col-5 p-0");
+    saveBtnClck.setAttribute("class", "col-6 pl-1");
     var viewRecipe = document.createElement("a");
     viewRecipe.textContent = "Recipe";
     viewRecipe.setAttribute("target", "_blank");
@@ -170,11 +156,11 @@ else{
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
     img.setAttribute("alt", `Tantalizing image of ${recipeSlct.label}`);
-    img.setAttribute("class", "pr-3"),
+    img.setAttribute("class", "pr-3")
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
-    recipeLabel.setAttribute("class", "card-title border-bottom border-dark titleRecipe");
+    recipeLabel.setAttribute("class", "card-title text-center border-bottom border-dark titleRecipe mr-3");
     var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
     recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
@@ -184,13 +170,11 @@ else{
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
-    ingredContainerEl.append(recipeIngred);
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
-    btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
-    btnRow.appendChild(btnCol);
-    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
+    ingredContainerEl.append(recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow2, ingredContainerEl);
     recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
     }
@@ -210,7 +194,7 @@ var omgSaveYum = function (event) {
   }
   var saveImgToObj = saveDetails.firstChild.nextSibling.src;
   saveObj.saveImg.splice(0, 1, saveImgToObj);
-  var saveRecipeUrl = saveDetails.firstChild.nextSibling.nextSibling.firstChild.firstChild.firstChild.firstChild.href;
+  var saveRecipeUrl = saveDetails.firstChild.nextSibling.nextSibling.firstChild.firstChild.href;
   (saveObj.saveUrl).splice(0,1, saveRecipeUrl);
   localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
 }
