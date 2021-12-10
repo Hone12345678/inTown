@@ -143,6 +143,12 @@ section{
 
 ul {
   margin-left:20px;
+  font-weight: bold;
+  font-size: large;
+}
+
+ul li {
+  font-weight: 400;
 }
 
 section {

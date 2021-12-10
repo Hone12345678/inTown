@@ -93,7 +93,7 @@ function displayImage(d) {
     recipeCont.setAttribute("id", [i]);
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
-    recipeBrdr.setAttribute("class", "border border-dark pl-4 pb-2 background");
+    recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
     var btnRow = document.createElement("div");
     btnRow.setAttribute("class", "row");
     var btnCol = document.createElement("div");
@@ -114,25 +114,29 @@ function displayImage(d) {
     saveBtnClck.addEventListener("click", omgSaveYum);
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
+    img.setAttribute("class", "pr-3"),
     img.setAttribute("alt", `Tantalizing image of ${recipeSlct.label}`);
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
     recipeLabel.setAttribute("class", "card-title border-bottom border-dark titleRecipe");
+    var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
+    recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
     recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
+    ingredContainerEl.append(recipeIngred);
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
     btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
     btnRow.appendChild(btnCol);
-    recipeBrdr.append(recipeLabel, img, btnRow);
-    recipeCont.append(recipeBrdr, recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
+    recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
   }
 }
@@ -144,7 +148,7 @@ else{
     recipeCont.setAttribute("id", [i]);
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
-    recipeBrdr.setAttribute("class", "border border-dark pl-4 pb-2 background");
+    recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
     var btnRow = document.createElement("div");
     btnRow.setAttribute("class", "row");
     var btnCol = document.createElement("div");
@@ -166,24 +170,28 @@ else{
     saveRecipe.setAttribute("class", "btn btn-success btn-sm btn-block");
     var img = document.createElement("img");
     img.setAttribute("alt", `Tantalizing image of ${recipeSlct.label}`);
+    img.setAttribute("class", "pr-3"),
     img.src = recipeSlct.image;
     var recipeLabel = document.createElement("p");
     recipeLabel.textContent = recipeSlct.label;
     recipeLabel.setAttribute("class", "card-title border-bottom border-dark titleRecipe");
+    var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
+    recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
     recipeIngred.setAttribute("class", "card-text");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
+    ingredContainerEl.append(recipeIngred);
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
     btnCol.appendChild(btnRow2);
     btnRow2.append(viewRecipeClck, saveBtnClck);
     btnRow.appendChild(btnCol);
-    recipeBrdr.append(recipeLabel, img, btnRow);
-    recipeCont.append(recipeBrdr, recipeIngred);
+    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
+    recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
     }
 }
