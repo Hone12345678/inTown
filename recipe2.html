@@ -25,41 +25,45 @@
   <body>
     
     <!-- begin header w nav bar -->
+    <div class="container-fluid p-0">
     <header class="jumbotron">
-      <nav class="d-flex navbar">
-        <h1 class="placeholder">Recipe Match</h1>
-        <ul>
-          <li>
-            <a href="./index.html">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="./recipe2.html">
-              Recipe Match
-            </a>
-          </li>
-          <li>
-            <a href="./seatGeek.html">
-              Event Finder
-            </a>
-          </li>
-          <li>
-            <a href="./dateNight.html">
-              Date Night
-            </a>
-          </li>
-        </ul>
+      <nav class="d-flex navbar row">
+        <h1 class="placeholder col-md-5 col-lg-6">Recipe Match</h1>
+        <div class="col-md-7 col-lg-6">
+          <ul class="row justify-content-center">
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./index.html">
+                Home
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./recipe2.html">
+                Recipe Match
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./seatGeek.html">
+                Event Finder
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./dateNight.html">
+                Date Night
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav> 
     </header>
+  </div>
 
 <!-- begin ingredient search form -->
     <main class="container pb-3 mb-3 border border-dark">
       <div class="row justify-content-center">
         <p class="recipeText">Enter the ingredients you have or want to use in your recipe</p>
-        <div class="col-12 col-sm-12">
+        <div class="col-sm-12">
           <form class="form-row justify-content-center userInput">
-            <div class="col-4">
+            <div class="col-6">
               <div class="row">
                 <div class="col-6 pl-0">
                   <input
