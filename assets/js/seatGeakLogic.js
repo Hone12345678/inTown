@@ -1,15 +1,10 @@
-// var myClientID ="MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0";
-// var mySID = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3";
-
-
-// luc client id = MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1
-// luc mySID = 2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3
-
+// start setting up the up the modal start
 var dialog = document.getElementById("dialogModal")
 var modalText = dialog.firstChild.nextSibling.firstChild.nextSibling
 var eventPosting = $(".eventPostersContainer");
-console.log(modalText);
+// end setting up the up the modal end
 
+// start array of objects used for local storage start
 var saveObj = {
     saveTitle: [],
     saveImage: [],
@@ -17,43 +12,36 @@ var saveObj = {
     saveLocation: [],
     saveUrl: []
 };
+// end array of objects used for local storage end
 
-var currentdate = new Date();
-var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + (currentdate.getDate()+1)
-
-console.log(datetime)
-
+// start gather user inputs and interact with the api start
 var getUserEvents = function () {
-
     var userZip = $("#userZip").val();
     var userRange = $("#userRange").val();
     var gatherUserInput = `https://api.seatgeek.com/2/events?client_id=MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1&geoip=${userZip}&range=${userRange}`;
     fetch(gatherUserInput).then(function (response) {
-            console.log(response);
-            if (response.ok) {
-                response.json().then(function(data){
-                    renderItem(data);
-                    console.log(data);
-                });
-            } else {
-
-                modalText.textContent = "Looks like your zip code was not accepted or a desired search radius was not selected. Make sure that information is updated and we'll be able to suggest some events in your area!";
-                solveTheProblem();
-                return;
-            }
-        })
-        .then(function (data) {
-            console.log(data);
-        });   
+        if (response.ok) {
+            response.json().then(function (data) {
+                renderItem(data);
+            });
+        } else {
+            // modal notifying the user of invalid input
+            modalText.textContent = "Looks like your zip code was not accepted or a desired search radius was not selected. Make sure that information is updated and we'll be able to suggest some events in your area!";
+            solveTheProblem();
+            return;
+        }
+    })
 };
+// end gather user inputs and interact with the api end
 
+// start display and format the relavant parts of the response from the api start
 function renderItem(data) {
     for (let i = 0; i < data.events.length; i++) {
 
         var linkEl = $("<a></a>");
         linkEl.attr("href", data.events[i].url)
-        .attr("target", "_blank")
-        .attr("class", "col-sm-12 col-md-4 py-2");
+            .attr("target", "_blank")
+            .attr("class", "col-sm-12 col-md-4 py-2");
 
         var imageEl = $("<img>");
         imageEl.attr("src", data.events[i].performers[0].image);
@@ -61,26 +49,31 @@ function renderItem(data) {
         imageEl.appendTo(linkEl);
         console.log(imageEl);
 
+        // start creating and formating the continer the events display in start
         var eventContainerEl = $("<div></div>");
         eventContainerEl.addClass("border border-dark col-sm-12 mb-3 bckgrnd");
 
         var eventRowEl = $("<div></div>");
         eventRowEl.attr("class", "row mb-2");
-        
+
         var eventRowEl2 = $("<div></div>");
         eventRowEl2.attr("class", "row");
 
         var eventInfo = $("<div></div>");
         eventInfo.attr("class", "col-sm-12 col-md-8 py-2");
+        // end creating and formating the continer the events display in end
 
+        // title of event
         var eventTitle = $("<h3></h3>");
         eventTitle.text(data.events[i].title);
         eventTitle.appendTo(eventInfo);
-        
+
+        // type of event
         var eventType = $("<p> </p>");
         eventType.text(data.events[i].type);
         eventType.appendTo(eventInfo);
 
+        // date of event
         var eventDateTime = $("<p> </p>");
         // create a variable to parse data from api call
         var date = Date.parse(data.events[i].datetime_local);
@@ -90,14 +83,16 @@ function renderItem(data) {
         eventDateTime.text(dateFormat);
         eventDateTime.appendTo(eventInfo);
 
-        var eventDateLocation= $("<p></p>");
+        // location of event
+        var eventDateLocation = $("<p></p>");
         eventDateLocation.text(data.events[i].venue.name);
         eventDateLocation.appendTo(eventInfo);
 
-        var saveButton =$("<button>Yes Please!</button>").attr("class","btn-secondary btn-sm")
+        // save button  
+        var saveButton = $("<button>Yes Please!</button>").attr("class", "btn-secondary btn-sm")
         saveButton.on("click", saveTheEvent);
         saveButton.appendTo(eventInfo);
-    
+
         linkEl.prependTo(eventRowEl2);
         eventInfo.appendTo(eventRowEl2);
         eventRowEl2.appendTo(eventContainerEl);
@@ -105,28 +100,31 @@ function renderItem(data) {
         eventRowEl.appendTo(eventPosting);
     }
 }
+// end display and format the relavant parts of the response from the api  end
 
-
+// start function call to getUserEvents after user clicks the submit button start
 var eventsInArea = document.querySelector(".eventsInArea");
 $(".eventInput").submit(function (event) {
     event.preventDefault();
     eventPosting.html("");
     getUserEvents();
 })
+// end function call to getUserEvents after user clicks the submit button end
 
 
-
+// start logic for modal if input of zip or range is invlaid start
 var cancelButton = document.getElementById('cancel')
 function solveTheProblem() {
     dialog.showModal();
-    cancelButton.addEventListener('click', function() {
+    cancelButton.addEventListener('click', function () {
         dialog.close();
     });
 };
+// end logic for modal if input of zip or range is invlaid  end
 
 
-
-var saveTheEvent = function(event) {
+// start local storage logic start
+var saveTheEvent = function (event) {
     event.target;
     // THIS DOES NOT TARGET THE EVENT SELECT TO IT RETURNS A NULL VALUE
     var saveDetails = this.closest("div");
@@ -135,6 +133,9 @@ var saveTheEvent = function(event) {
     saveObj.saveTitle.splice(0, 1, saveDetails.firstChild.innerText);
     saveObj.saveDate.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.innerText);
     saveObj.saveLocation.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.nextSibling.innerText);
-console.log(saveObj);
+    console.log(saveObj);
     localStorage.setItem("savedEvent", JSON.stringify(saveObj));
 }
+// end local storage logic end
+
+// END
