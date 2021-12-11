@@ -1,31 +1,15 @@
-//owen seatgeek ID:
-//var Client ID: MjQ3NDgwNzd8MTYzODUwMTM2OS43OTkxNDE0
-//var secretid = 4429e1ae22c0aa3ee55fa52470a44d43b92d5a5c9c50e39ea7debc50f009246cS
-// luc seatgeek ID:
-// var clientID = "MjQ3NDc1MzZ8MTYzODQ5OTY1Ny41MTE4OTg1";
-// luc seatgeek API:
-// var secretid = "2b0b7028d8aead384e4849058a883ca9d344d06dc999989bcbee64d5e87255e3";
-// ross seatgeek ID:
-// var sgId = "MjQ3NDc5OTF8MTYzODUwMTM3Ny4wMDg0Njkz";
-
-// ross seatgeek API:
-// var sgapi = "a6b71eb52cb670089cf50fb5738d53648820061f6b4881cec0f37a476826e8a1";
-
-// edit below apikey with anything that's relevant, if api key is required.
-// ross appid
-// var appid = "0011fe5c";
-
-//test
-
 // luc appid
 var appid = "5ce86110";
-
-// ross api key
-// var apikey = "d275470047fa1b116d2b18e8130d5d08";
-
 // luc api key
 var apikey = "eced3b68dfd63d133724d406c306074c";
 
+// ross appid (in case we get locked out of the above)
+// var appid = "0011fe5c";
+// ross api key (in case we get locked out of the above)
+// var apikey = "d275470047fa1b116d2b18e8130d5d08";
+
+
+// object where recipe details are to be pushed to and saved to local storage
 var saveObj = {
   saveLabel: [],
   saveImg: [],
@@ -33,6 +17,7 @@ var saveObj = {
   saveUrl: [],
 };
 
+// global vars to be used 
 var cancelButton = document.getElementById('cancel');
 var dialog = document.getElementById('dialogModal');
 var recipeImageEl = document.querySelector(".recipeContainer");
@@ -40,7 +25,7 @@ var badInput = dialog.firstChild.nextSibling.firstElementChild;
 
 // api is being called
 var recipeFetch = function () {
-  //user inputs name of ingredient and number of chosen ingredients
+  //user inputs name of ingredient and max number of ingredients in randomly selected recipe results
   var ingredientName1 = $("#ingredientName1").val();
   var ingredientName2 = "%20" + $("#ingredientName2").val();
   var ingredientName3 = "%20" + $("#ingredientName3").val();
@@ -54,6 +39,7 @@ var recipeFetch = function () {
       if (response.ok) {
         return response.json();
       } else {
+        // display modal if no max number of ingredients were selected.
         badInput.textContent = "Please select the total number of ingredients (or less) that you would like your recipe selections to have!";
         badTimesModal();
         return;
@@ -65,6 +51,7 @@ var recipeFetch = function () {
         displayImage(data);
       }
       else {
+        // display modal if there were no recipe results using combination of ingredients or if recipe ingredient was mispelled.
         badInput.textContent = "Either one or more of your ingredients were misspelled or your combination of ingredients yielded no recipes. Please adjust your ingredients and try again!";
         badTimesModal();
       }
@@ -79,7 +66,7 @@ $(".userInput").submit(function (e) {
   recipeFetch();
 });
 
-// displays image of recipe
+// displays and styles each recipe. limits displayed results to 8 of the potential 20 random recipe returns.
 function displayImage(d) {
   if (d.hits.length > 7) {
   for (let i = 0; i < 8; i++) {
@@ -90,8 +77,8 @@ function displayImage(d) {
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
     recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
-    var btnRow2 = document.createElement("div");
-    btnRow2.setAttribute("class", "row pr-3");
+    var btnRow = document.createElement("div");
+    btnRow.setAttribute("class", "row pr-3");
     var viewRecipeClck = document.createElement("div");
     viewRecipeClck.setAttribute("class", "col-6 pr-1");
     var saveBtnClck = document.createElement("div");
@@ -121,15 +108,17 @@ function displayImage(d) {
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
+// start organizing appends to the DOM
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
-    btnRow2.append(viewRecipeClck, saveBtnClck);
+    btnRow.append(viewRecipeClck, saveBtnClck);
     ingredContainerEl.append(recipeIngred);
-    recipeBrdr.append(recipeLabel, img, btnRow2, ingredContainerEl);
+    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
     recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
   }
 }
+// create the same display as above if the recipes number LESS than 8
 else{
   for (let i = 0; i < d.hits.length; i++) {
     var recipeCont = document.createElement("section");
@@ -139,8 +128,8 @@ else{
     var recipeSlct = d.hits[i].recipe;
     var recipeBrdr = document.createElement("div");
     recipeBrdr.setAttribute("class", "border border-dark pl-3 pb-2 background");
-    var btnRow2 = document.createElement("div");
-    btnRow2.setAttribute("class", "row pr-3");
+    var btnRow = document.createElement("div");
+    btnRow.setAttribute("class", "row pr-3");
     var viewRecipeClck = document.createElement("div");
     viewRecipeClck.setAttribute("class", "col-6 pr-1");
     var saveBtnClck = document.createElement("div");
@@ -170,26 +159,26 @@ else{
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];
       recipeIngred.append(recipeIngredList);
     }
+    // start organizing appends to the DOM
     viewRecipeClck.appendChild(viewRecipe);
     saveBtnClck.appendChild(saveRecipe);
-    btnRow2.append(viewRecipeClck, saveBtnClck);
+    btnRow.append(viewRecipeClck, saveBtnClck);
     ingredContainerEl.append(recipeIngred);
-    recipeBrdr.append(recipeLabel, img, btnRow2, ingredContainerEl);
+    recipeBrdr.append(recipeLabel, img, btnRow, ingredContainerEl);
     recipeCont.append(recipeBrdr);
     recipeImageEl.append(recipeCont);
     }
 }
 };
-
+// target relevant save features 
 var omgSaveYum = function (event) {
   event.target;
-  saveObj.saveIngreds = [];
   var saveDetails = this.closest("section").firstChild;
   var saveTitle = saveDetails.firstChild.innerHTML;
   saveObj.saveLabel.splice(0, 1, saveTitle);
   var ingredSaveToObj = saveDetails.lastChild.firstElementChild.children;
   for (let i = 1; i < ingredSaveToObj.length; i++) {
-    const element = ingredSaveToObj[i];
+    var element = ingredSaveToObj[i];
     saveObj.saveIngreds.push(element.innerHTML);
   }
   var saveImgToObj = saveDetails.firstChild.nextSibling.src;
@@ -199,7 +188,7 @@ var omgSaveYum = function (event) {
   localStorage.setItem("savedRecipe", JSON.stringify(saveObj));
 }
 
-
+// in case of bad recipe ingredient input, no recipe results with inputs, or no ingredient max chosen, display this modal.
 function badTimesModal() {
     dialog.showModal();
   cancelButton.addEventListener('click', function() {

@@ -87,6 +87,10 @@ body {
   margin-bottom: 20px;
 }
 
+.grad {
+    border-radius: 15px;
+}
+
 .bckgrnd {
     border-radius: 15px;
     background: #e7e7e7;
