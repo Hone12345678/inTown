@@ -102,7 +102,7 @@ function displayImage(d) {
     var ingredContainerEl = document.createElement("div");
     var recipeIngred = document.createElement("ul");
     recipeIngred.innerHTML = "<u>Recipe Ingredients:</u>";
-    recipeIngred.setAttribute("class", "card-text pr-2");
+    recipeIngred.setAttribute("class", "card-text pr-2 text-center");
     for (let i = 0; i < recipeSlct.ingredientLines.length; i++) {
       var recipeIngredList = document.createElement("li");
       recipeIngredList.textContent = recipeSlct.ingredientLines[i];

@@ -20,34 +20,38 @@
 <body>
 
   <!-- start jumbotron header that allows navagation between the pages start -->
-  <header class="jumbotron">
-    <nav class="d-flex navbar">
-      <h1 class="placeholder">Event Finder</h1>
-      <ul>
-        <li>
-          <a href="./index.html">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="./recipe2.html">
-            Recipe Match
-          </a>
-        </li>
-        <li>
-          <a href="./seatGeek.html">
-            Event Finder
-          </a>
-        </li>
-        <li>
-          <a href="./dateNight.html">
-            Date Night
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <!-- end jumbotron header that allows navagation between the pages end -->
+  <div class="container-fluid p-0">
+    <header class="jumbotron">
+      <nav class="d-flex navbar row">
+        <h1 class="placeholder col-md-5 col-lg-6">Event Finder</h1>
+        <div class="col-md-7 col-lg-6">
+          <ul class="row justify-content-center">
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./index.html">
+                Home
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./recipe2.html">
+                Recipe Match
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./seatGeek.html">
+                Event Finder
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./dateNight.html">
+                Date Night
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav> 
+    </header>
+  </div> 
+   <!-- end jumbotron header that allows navagation between the pages end -->
 
   <!-- start user input section provides input to seatGeakLogic.js start -->
   <main class="container grad pb-3 border border-dark">

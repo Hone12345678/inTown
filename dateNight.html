@@ -24,34 +24,38 @@
 </head>
 <body>
   <!-- Header and Navbar Section Starts -->
-  <header class="jumbotron">
-    <nav class="d-flex navbar">
-        <h1 class="placeholder">Date Night</h1>
-        <ul>
-          <li>
-            <a href="./index.html">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="./recipe2.html">
-              Recipe Match
-            </a>
-          </li>
-          <li>
-            <a href="./seatGeek.html">
-              Event Finder
-            </a>
-          </li>
-          <li>
-            <a href="./dateNight.html">
-              Date Night
-            </a>
-          </li>
-        </ul>
+  <div class="container-fluid p-0">
+    <header class="jumbotron">
+      <nav class="d-flex navbar row">
+        <h1 class="placeholder col-md-5 col-lg-6">Date Night</h1>
+        <div class="col-md-7 col-lg-6">
+          <ul class="row justify-content-center">
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./index.html">
+                Home
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./recipe2.html">
+                Recipe Match
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./seatGeek.html">
+                Event Finder
+              </a>
+            </li>
+            <li class="col-6 col-sm-6 col-md-3 p-0 m-0 text-center">
+              <a href="./dateNight.html">
+                Date Night
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav> 
-  </header>
-  <!-- Header and Navbar Section Ends -->
+    </header>
+  </div> 
+    <!-- Header and Navbar Section Ends -->
 
   <section class="col-12">
     <h1 class="header border border-dark py-4 mb-3">Here Are Your Plans This Evening: </h1>
@@ -59,11 +63,13 @@
     <!-- Recipe Section Starts -->
     <div class="container d-flex flex-wrap col-md-12">
       <div class="row">
-      <div class="recipeContainer col-sm-12 col-lg-6">
+
+      <div class="recipeContainer col-sm-12 col-md-6">
+
         <h4 class="mb-3"><u>Your Recipe: </u></h4>
         <div class="border border-dark p-2 eventBorder">
         <p class="recipeName">Recipe name</p>
-        <img src="" class="recipeImage mb-2 col-md-12 col-sm-10"></img>
+        <img src="" class="recipeImage mb-2 col-sm-12"></img>
         <br>
         <a href="" target="_blank" class="recipeUrl">Click here to view recipe instructions.</a>
         <div><ul class="recipeIngreds"><u>Recipe ingredients:</u></ul>
@@ -73,11 +79,13 @@
       <!-- Recipe Section Ends -->
 
       <!-- Event Section Starts -->
-      <div class="eventContainer col-sm-12 col-lg-6">
+
+      <div class="eventContainer col-sm-12 col-md-6">
+
         <h4 class="mb-3"><u>Your Event: </u></h4>
         <div class="border border-dark p-3 mb-4 eventBorder">
         <p class="eventName font-weight-bold">Event name</p>
-        <img src="" class="eventImage mb-2 col-md-12 col-sm-10"></img>
+        <img src="" class="eventImage mb-2 col-sm-12"></img>
         <p><a href="" target="_blank" class="eventUrl">Click here to view the event website.</a></p>
         <p class="eventDate"><strong>Date: </strong></p>
         <p class="eventLocation"><strong>Location: </strong></p>
