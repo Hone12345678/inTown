@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* styling begin for nav and header */
+
 .jumbotron {
   padding: .5em;
   margin-left: -20px;
@@ -50,6 +52,8 @@ nav ul li a:hover {
   color: #e7e7e7;
 }
 
+/* styling begin for form */
+
 img {
   width: 100%;
   margin: 0 10px 10px 0;
@@ -59,30 +63,8 @@ img {
   padding: 7px 0px;
 }
 
-section p {
-  font-weight: bolder;
-}
-section {
-  padding-left: 200px;
-  border-bottom: 1px solid;
-}
-
-#nextBtn {
-  padding-bottom:84px;
-}
-
 a {
   background-color: #efefef;
-}
-
-dialog form p {
-  font-size: 1em;
-  padding: 10%;
-}
-
-#dialogModal {
-  margin:auto;
-  font-size: 40px;
 }
 
 .recipeText {
@@ -90,19 +72,11 @@ dialog form p {
   color: #e7e7e7;
 }
 
-#dialogModal p {
-  font-family: 'Shalimar', cursive;
-}
-
 body{
   background: #bdaf9e;
 }
 
-.card-deck {
-  width: 100%;
-}
-
-main{
+main, header{
   animation: fadeInAnimation ease 1000ms;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -110,10 +84,17 @@ main{
   background: linear-gradient( black 25%, #bdaf9e);
 }
 
+section p {
+  font-weight: bolder;
+}
+
 section{
   animation: fadeInAnimation ease 1000ms;
   animation-iteration-count: 1;
   animation-fill-mode: both;
+  padding-left: 200px;
+  border-bottom: 1px solid;
+
 }
 
 @keyframes fadeInAnimation {
@@ -142,23 +123,37 @@ section{
 } 
 
 ul {
-  margin-left:10px;
   font-weight: bold;
   font-size: large;
 }
 
 ul li {
+  margin-left:10px;
   font-weight: 400;
 }
 
-section {
-  transition-delay: 1s;
+/* begin modal specific formatting */
+
+dialog form p {
+  font-size: 1em;
+  padding: 10%;
+}
+
+#dialogModal p {
+  font-family: 'Shalimar', cursive;
+}
+
+#dialogModal {
+  margin:auto;
+  font-size: 40px;
 }
 
 dialog button:hover {
   opacity: 70%;
   transition: 500ms;
 }
+
+/* begin media query hotfixes to allow more fluid transitions for mobile friendliness*/
 
 @media screen and (min-width: 500px) {
   .recipeText {
