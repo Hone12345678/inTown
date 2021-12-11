@@ -23,6 +23,8 @@
     <title>Make Tonight's Dream Recipe!</title>
   </head>
   <body>
+    
+    <!-- begin header w nav bar -->
     <header class="jumbotron">
       <nav class="d-flex navbar">
         <h1 class="placeholder">Recipe Match</h1>
@@ -51,6 +53,7 @@
       </nav> 
     </header>
 
+<!-- begin ingredient search form -->
     <main class="container pb-3 mb-3 border border-dark">
       <div class="row justify-content-center">
         <p class="recipeText">Enter the ingredients you have or want to use in your recipe</p>
@@ -91,7 +94,7 @@
                   />
                 </div>
                 <select class="col-6 p-0 ingredientNumber">
-                  <option value=""># of ingredients</option>
+                  <option value="">Max Ingredient #</option>
                   <option value="6">6</option>
                   <option value="7">7</option>
                   <option value="8">8</option>
@@ -99,7 +102,7 @@
                 </select>
                 <input
                   type="submit"
-                  class="submitBtn btn-block col-6"
+                  class="submitBtn btn-block col-6 btn-outline-dark"
                   value="Submit"
                 />
               </div>
@@ -108,23 +111,22 @@
         </div>
       </div>
     </main>
-    <!-- <div class="container-fluid">
-      <div class="row recipeContainer">
-      </div>
-    </div> -->
+
+    <!-- begin formatting of shared space for recipes to display and modal in case validation requires it to display -->
     <div class="container">
       <div class="card-deck row m-0">
           <div class="col-12">
             <div class="row recipeContainer"></div>
+
             <!-- Modal -->
-  <dialog id="dialogModal">
-    <form method="dialog">
-        <p></p>
-      <menu>
-        <button id="cancel" class="btn btn-secondary btn-lg btn-block" type="reset">Ok</button>
-      </menu>
-    </form>
-  </dialog>
+            <dialog id="dialogModal">
+              <form method="dialog">
+                <p></p>
+                <menu>
+                  <button id="cancel" class="btn btn-secondary btn-lg btn-block" type="reset">Ok</button>
+                </menu>
+              </form>
+            </dialog>
           </div>
       </div>
     </div>
