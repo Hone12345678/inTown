@@ -47,7 +47,6 @@ function renderItem(data) {
         imageEl.attr("src", data.events[i].performers[0].image);
         imageEl.attr("class", "col")
         imageEl.appendTo(linkEl);
-        console.log(imageEl);
 
         // start creating and formating the continer the events display in start
         var eventContainerEl = $("<div></div>");
@@ -70,7 +69,11 @@ function renderItem(data) {
 
         // type of event
         var eventType = $("<p> </p>");
-        eventType.text(data.events[i].type);
+        var typePreText = data.events[i].type;
+        // remove "_" from the type of event and replace with a " "
+        var typePostText = typePreText.split("_")
+            .join(' ');
+        eventType.text(typePostText);
         eventType.appendTo(eventInfo);
 
         // date of event
@@ -107,8 +110,14 @@ var eventsInArea = document.querySelector(".eventsInArea");
 $(".eventInput").submit(function (event) {
     event.preventDefault();
     eventPosting.html("");
-    getUserEvents();
-})
+    if ($("#userZip").val().length < 5 || $("#userZip").val().length > 5) {
+        modalText.textContent = "Looks like your zip code was not accepted or a desired search radius was not selected. Make sure that information is updated and we'll be able to suggest some events in your area!";
+        solveTheProblem();
+        return;
+    } else {
+        getUserEvents();
+    }
+});
 // end function call to getUserEvents after user clicks the submit button end
 
 
@@ -133,7 +142,6 @@ var saveTheEvent = function (event) {
     saveObj.saveTitle.splice(0, 1, saveDetails.firstChild.innerText);
     saveObj.saveDate.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.innerText);
     saveObj.saveLocation.splice(0, 1, saveDetails.firstChild.nextSibling.nextSibling.nextSibling.innerText);
-    console.log(saveObj);
     localStorage.setItem("savedEvent", JSON.stringify(saveObj));
 }
 // end local storage logic end
