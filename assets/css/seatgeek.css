@@ -1,30 +1,27 @@
+
+/* "*" Section applies to all*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #000000;
-    z-index: -1;
+/* start general styling start */
+body {
+    background-color: #bdaf9e;
+    
 }
 
-.placeholder {
-    color: #e7e7e7;
-    font-family: 'WindSong', cursive;
-    font-size: 50px;
+.title {
+      font-family: 'WindSong', cursive;
+      font-size: 75px;
+      font-weight: lighter;
+      padding-top: 20px;
+      color: #e7e7e7;
 }
+/* end general styling end */
 
-#dialogModal p {
-    font-family: 'Shalimar', cursive;
-    font-size: 30px;
-}
-
+/* start styling header and nav bar start */
 nav {
     margin: 7px 0;
     justify-content: space-between;
@@ -56,12 +53,39 @@ nav ul li a:hover {
     color: #e7e7e7;
 }
 
-h2{
-    font-family: 'Shalimar', cursive;
-    color: #e7e7e7
+.jumbotron {
+    padding: .5em;
+    text-align: center;
+    border-radius: 0;
+    background: #000000;
+    margin-bottom: 20px;
+  }
+
+.placeholder {
+    color: #e7e7e7;
+    font-family: 'WindSong', cursive;
+    font-size: 50px;
 }
 
+header,.container {
+    animation: fadeInAnimation ease 1000ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+ /* animation for header nav bar */
+ @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        width: 0%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+     }
+}
+/* end styling header and nav bar end */
 
+/* start styling event finder user input area start */
 main {
     display: flex;
     justify-content: center;
@@ -69,43 +93,29 @@ main {
     margin-bottom: 5%;
 }
 
-body {
-    background-color: #bdaf9e;
-    
-}
-
 .grad{
     background-color: #16130f;
     background: linear-gradient( black 25%, #bdaf9e);
-}
-
-.jumbotron {
-  padding: .5em;
-  text-align: center;
-  border-radius: 0;
-  background: #000000;
-  margin-bottom: 20px;
-}
-
-.grad {
     border-radius: 15px;
 }
 
-.bckgrnd {
-    border-radius: 15px;
-    background: #e7e7e7;
-}
-
-.title {
-    font-family: 'WindSong', cursive;
-    font-size: 75px;
-    font-weight: lighter;
-    padding-top: 20px;
-    color: #e7e7e7;
+h2{
+    font-family: 'Shalimar', cursive;
+    color: #e7e7e7
 }
 
 .text {
     padding-top: 20px;
+}
+/* end styling event finder user input area end */
+
+/* start styling event finder search results start */
+.bckgrnd {
+    animation: fadeInAnimation ease 500ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    border-radius: 15px;
+    background: #e7e7e7;
 }
 
 .container {
@@ -127,10 +137,17 @@ img:hover {
 #eventSelect {
     padding: 7px 0px;
 }
+/* end styling event finder search results end */
 
+/* start styling for modal start */
 #dialogModal{
     margin:auto;
     width: 30%;
+}
+
+#dialogModal p {
+    font-family: 'Shalimar', cursive;
+    font-size: 30px;
 }
 
 dialog form p {
@@ -138,32 +155,10 @@ dialog form p {
     padding-left: 5%;
     padding-top:10% ;
     font-size: medium;
-
-  }
-  
-  header, .container {
-    animation: fadeInAnimation ease 1000ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  }
-
-  .bckgrnd {
-    animation: fadeInAnimation ease 500ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  }
-  
-  @keyframes fadeInAnimation {
-      0% {
-          opacity: 0;
-          width: 0%;
-      }
-      100% {
-          opacity: 1;
-          width: 100%;
-       }
-  }
-
+}
+/* end styling for modal end */
+    
+/* start media query section for mobile optimization start */
 @media screen and (min-width: 500px) {
     .eventInfo {
         text-align: center;
@@ -175,5 +170,6 @@ dialog form p {
         text-align: left;
     }
 }
+/* end media query section for mobile optimization end */
 
 /* END */
